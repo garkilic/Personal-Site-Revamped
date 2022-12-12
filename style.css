@@ -1,0 +1,16 @@
+body {
+	background-color: #121212;
+	color: #d0d0d0;
+}
+
+.main--section {
+	text-align: center;
+	margin: 300px 0;
+}
+
+/* Link Styling */
+
+a {
+	color: #0091ff;
+	margin: 0 1rem;
+}
