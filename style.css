@@ -8,6 +8,10 @@ body {
 	margin: 300px 0;
 }
 
+.nav--bar {
+	margin: 0;
+}
+
 @media (max-width: 700px) {
 	.main--section {
 		margin: 200px 0;
@@ -16,7 +20,7 @@ body {
 
 /* Link Styling */
 
-a {
+.main--section a {
 	color: #0091ff;
 	margin: 0 1rem;
 }
