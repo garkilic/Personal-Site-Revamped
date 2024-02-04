@@ -2,13 +2,11 @@ body {
 	background-color: black;
 	font-family: "Roboto Mono", monospace;
 	color: #00ff41;
+	text-align: center;
 }
 
 .main--section {
 	text-align: center;
-}
-
-.nav--bar {
 	margin: 0;
 }
 
@@ -27,11 +25,37 @@ img {
 		padding: 0;
 		width: 50%;
 	}
+	.nav--bar a {
+		display: block;
+	}
 }
 
 /* Link Styling */
 
-.main--section a {
+.nav--bar a {
 	color: #00ff41;
-	margin: 0 1rem;
+	padding: 0.5rem;
+}
+
+a {
+	color: #00ff41;
+}
+
+li {
+	list-style: none;
+}
+
+.projects {
+	margin: 1rem;
+	text-align: center;
+	word-wrap: break-word;
+}
+.project--description {
+	padding: 1rem;
+}
+
+.current--projects,
+.past--projects {
+	margin: 1rem;
+	text-decoration: underline;
 }
