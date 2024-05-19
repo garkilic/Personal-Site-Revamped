@@ -37,7 +37,8 @@
 		<div class="main--section">
 			<img class="Skull" src="Img/Skull.jpeg" />
 			<h1>Griffin Arkilic</h1>
-			<h2>Based in San Francisco, CA</h2>
+			<h2>Based in Los Angeles, CA</h2>
+			<span id="typing"></span><span id="cursor">|</span>
 			<p class="pdoom">Current P(doom):0.1%</p>
 			<div class="nav--bar">
 				<a href="mailto: garkilic@gmail.com">Email</a>
@@ -50,6 +51,19 @@
 					download="Griffin-Arkilic-Resume.pdf"
 					>Resume</a
 				>
+
+				<script>
+					  const text = "Builder, Writer, and AI Technology Scout";
+        let index = 0;
+        function type() {
+            if (index < text.length) {
+                document.getElementById('typing').innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 100); // Adjust typing speed
+            } 
+        }
+        window.onload = type;
+				</script>
 			</div>
 		</div>
 	</body>
