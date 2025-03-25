@@ -18,6 +18,79 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="Style/style.css" />
+		<style>
+			.main--section {
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 2rem;
+				background: #000;
+				color: #fff;
+			}
+			.hero-section {
+				text-align: center;
+				margin-bottom: 4rem;
+				max-width: 800px;
+			}
+			.Skull {
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				margin-bottom: 2rem;
+			}
+			.nav--bar {
+				margin-top: 2rem;
+				display: flex;
+				gap: 2rem;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			.nav--bar a {
+				color: #fff;
+				text-decoration: none;
+				transition: opacity 0.3s ease;
+			}
+			.nav--bar a:hover {
+				opacity: 0.7;
+			}
+			.current-prototype {
+				width: 100%;
+				max-width: 1000px;
+				margin-top: 2rem;
+				padding: 2rem;
+				background: rgba(255, 255, 255, 0.05);
+				border-radius: 15px;
+				text-align: center;
+			}
+			.current-prototype h2 {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+			}
+			.current-prototype p {
+				margin-bottom: 2rem;
+				line-height: 1.6;
+			}
+			.prototype-link {
+				display: inline-block;
+				padding: 1rem 2rem;
+				background: #fff;
+				color: #000;
+				text-decoration: none;
+				border-radius: 30px;
+				transition: transform 0.3s ease;
+			}
+			.prototype-link:hover {
+				transform: translateY(-3px);
+			}
+			#cursor {
+				animation: blink 1s infinite;
+			}
+			@keyframes blink {
+				0%, 100% { opacity: 1; }
+				50% { opacity: 0; }
+			}
+		</style>
 		<!-- Google tag (gtag.js) -->
 		<script
 			async
@@ -35,37 +108,37 @@
 	</head>
 	<body>
 		<div class="main--section">
-			<img class="Skull" src="Img/Skull.jpeg" />
-			<h1>Griffin Arkilic</h1>
-			<h2>Based in Los Angeles, CA</h2>
-			<span id="typing"></span><span id="cursor">|</span>
-			<p class="pdoom">Current P(doom):0.1%</p>
-			<div class="nav--bar">
-				<a href="mailto: garkilic@gmail.com">Email</a>
-
-			
-				<a
-					href="Files/Griffin Arkilic Resume - 2024.pdf"
-					download="Griffin-Arkilic-Resume.pdf"
-					>Resume</a
-				>
-
-				<a href="Pages/projects.html">Press Releases</a>
-				<a href="Pages/building.html">AI Creations</a>
-				<a href="https://punkproduct.substack.com/">Substack</a>
+			<div class="hero-section">
+				<img class="Skull" src="Img/Skull.jpeg" />
+				<h1>Griffin Arkilic</h1>
+				<h2>Based in Los Angeles, CA</h2>
+				<span id="typing"></span><span id="cursor">|</span>
+				<p class="pdoom">Current P(doom):0.1%</p>
+				<div class="nav--bar">
+					<a href="mailto: garkilic@gmail.com">Email</a>
+					<a href="Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf">Resume</a>
+					<a href="Pages/prototype-template.html">6 Month Journey</a>
+				</div>
 			</div>
-			<script>
-				const text = "Building new things with AI.";
-  let index = 0;
-  function type() {
-	  if (index < text.length) {
-		  document.getElementById('typing').innerHTML += text.charAt(index);
-		  index++;
-		  setTimeout(type, 100); // Adjust typing speed
-	  } 
-  }
-  window.onload = type;
-		  </script>
+
+			<div class="current-prototype">
+				<h2>6 Prototypes in 6 Months</h2>
+				<p>A journey of rapid prototyping and innovation. Each month, I'll build and document a new prototype exploring different aspects of AI and technology.</p>
+				<a href="Pages/prototype-template.html" class="prototype-link">View Current Prototype</a>
+			</div>
 		</div>
+
+		<script>
+			const text = "Building new things with AI.";
+			let index = 0;
+			function type() {
+				if (index < text.length) {
+					document.getElementById('typing').innerHTML += text.charAt(index);
+					index++;
+					setTimeout(type, 100);
+				} 
+			}
+			window.onload = type;
+		</script>
 	</body>
 </html>
