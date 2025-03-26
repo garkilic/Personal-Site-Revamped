@@ -1,0 +1,42 @@
+.current-prototype {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.current-prototype h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.current-prototype p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.prototype-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+.prototype-link:hover {
+    transform: translateY(-3px);
+}
+
+#cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+} 

@@ -1,175 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Current Prototype - Griffin Arkilic</title>
+		<title>AI Prototype Lab | Griffin Arkilic</title>
 		<link rel="icon" href="../Img/Skull.jpeg" />
+
+		<!-- Primary Meta Tags -->
+		<meta name="title" content="AI Prototype Lab | Griffin Arkilic">
+		<meta name="description" content="Explore my AI Prototype Lab, where I build experimental AI projects. Each prototype explores different aspects of AI and emerging technologies." />
+		<meta name="keywords" content="AI Prototype Lab, AI Experiments, AI Development, Tech Innovation, Griffin Arkilic" />
+		<meta name="author" content="Griffin Arkilic" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://garkilic.github.io/Personal-Site-Revamped/Pages/prototype-template.html" />
+		<meta property="og:title" content="AI Prototype Lab | Griffin Arkilic" />
+		<meta property="og:description" content="Explore my AI Prototype Lab, where I build experimental AI projects. Each prototype explores different aspects of AI and emerging technologies." />
+		<meta property="og:image" content="../Img/Skull.jpeg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://garkilic.github.io/Personal-Site-Revamped/Pages/prototype-template.html" />
+		<meta property="twitter:title" content="AI Prototype Lab | Griffin Arkilic" />
+		<meta property="twitter:description" content="Explore my AI Prototype Lab, where I build experimental AI projects. Each prototype explores different aspects of AI and emerging technologies." />
+		<meta property="twitter:image" content="../Img/Skull.jpeg" />
+
+		<!-- Additional Meta Tags -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://garkilic.github.io/Personal-Site-Revamped/Pages/prototype-template.html" />
+
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="../Style/style.css" />
-		<style>
-			.main--section {
-				min-height: 100vh;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: 2rem;
-				background: #000;
-				color: #fff;
-			}
-			.hero-section {
-				text-align: center;
-				margin-bottom: 4rem;
-				max-width: 800px;
-			}
-			.Skull {
-				width: 150px;
-				height: 150px;
-				border-radius: 50%;
-				margin-bottom: 2rem;
-			}
-			.nav--bar {
-				margin-top: 2rem;
-				display: flex;
-				gap: 2rem;
-				flex-wrap: wrap;
-				justify-content: center;
-			}
-			.nav--bar a {
-				color: #fff;
-				text-decoration: none;
-				transition: opacity 0.3s ease;
-			}
-			.nav--bar a:hover {
-				opacity: 0.7;
-			}
-			.prototype-container {
-				width: 100%;
-				max-width: 1000px;
-				margin-top: 4rem;
-				padding: 2rem;
-				background: rgba(255, 255, 255, 0.05);
-				border-radius: 15px;
-			}
-			.prototype-header {
-				text-align: center;
-				margin-bottom: 3rem;
-			}
-			.prototype-header h1 {
-				font-size: 2.5rem;
-				margin-bottom: 1rem;
-			}
-			.prototype-meta {
-				display: flex;
-				justify-content: center;
-				gap: 2rem;
-				margin-bottom: 2rem;
-				color: #888;
-			}
-			.prototype-content {
-				line-height: 1.8;
-				font-size: 1.1rem;
-			}
-			.prototype-content img {
-				max-width: 100%;
-				height: auto;
-				border-radius: 8px;
-				margin: 2rem 0;
-			}
-			.prototype-content h1 {
-				font-size: 2rem;
-				margin: 2rem 0 1rem;
-				color: #fff;
-			}
-			.prototype-content h2 {
-				font-size: 1.5rem;
-				margin: 1.5rem 0 1rem;
-				color: #fff;
-			}
-			.prototype-content p {
-				margin-bottom: 1rem;
-			}
-			.prototype-content ul {
-				margin: 1rem 0;
-				padding-left: 2rem;
-			}
-			.prototype-content li {
-				margin-bottom: 0.5rem;
-			}
-			.prototype-content code {
-				background: rgba(255, 255, 255, 0.1);
-				padding: 0.2rem 0.4rem;
-				border-radius: 4px;
-				font-family: 'Roboto Mono', monospace;
-			}
-			.prototype-content pre {
-				background: rgba(255, 255, 255, 0.1);
-				padding: 1rem;
-				border-radius: 8px;
-				overflow-x: auto;
-				margin: 1rem 0;
-			}
-			.prototype-content pre code {
-				background: none;
-				padding: 0;
-			}
-			.prototype-content blockquote {
-				border-left: 4px solid rgba(255, 255, 255, 0.2);
-				margin: 1rem 0;
-				padding-left: 1rem;
-				color: #888;
-			}
-			.prototype-content a {
-				color: #fff;
-				text-decoration: none;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-				transition: border-color 0.3s ease;
-			}
-			.prototype-content a:hover {
-				border-color: #fff;
-			}
-			.error-details {
-				color: #ff6b6b;
-				font-size: 0.9rem;
-				margin-top: 1rem;
-				padding: 1rem;
-				background: rgba(255, 107, 107, 0.1);
-				border-radius: 8px;
-			}
-			.back-button {
-				display: inline-block;
-				margin-bottom: 2rem;
-				color: #fff;
-				text-decoration: none;
-				opacity: 0.7;
-				transition: opacity 0.3s ease;
-			}
-			.back-button:hover {
-				opacity: 1;
-			}
-			.loading {
-				text-align: center;
-				color: #888;
-				margin: 2rem 0;
-			}
-		</style>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="../styles/main.css" />
 	</head>
 	<body>
 		<div class="main--section">
 			<div class="hero-section">
-				<img class="Skull" src="../Img/Skull.jpeg" />
+				<img class="Skull" src="../Img/Skull.jpeg" alt="Griffin Arkilic Profile" />
 				<h1>Griffin Arkilic</h1>
 				<h2>Based in Los Angeles, CA</h2>
 				<div class="nav--bar">
-					<a href="../index.html">Home</a>
-					<a href="mailto: garkilic@gmail.com">Email</a>
-					<a href="../Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf">Resume</a>
-					<a href="prototype-template.html">6 Month Journey</a>
+					<a href="../index.html" aria-label="Return to Home">Home</a>
+					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
+					<a href="../Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
+					<a href="prototype-template.html" aria-label="View AI Prototype Lab">AI Prototype Lab</a>
 				</div>
 			</div>
 
@@ -187,67 +67,13 @@
 			</div>
 		</div>
 
+		<!-- Load marked.js for Markdown parsing -->
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<!-- Load our GitHub API functionality -->
+		<script src="../js/github-api.js"></script>
 		<script>
-			// GitHub API Configuration
-			const GITHUB_API_URL = 'https://api.github.com';
-			const GITHUB_REPO = 'garkilic/Personal-Site-Revamped';
-			
-			async function loadPrototype() {
-				try {
-					console.log('Fetching issues from GitHub...');
-					const response = await fetch(`${GITHUB_API_URL}/repos/${GITHUB_REPO}/issues?labels=prototype&state=all`, {
-						headers: {
-							'Accept': 'application/vnd.github.v3+json'
-						}
-					});
-
-					if (!response.ok) {
-						const errorText = await response.text();
-						throw new Error(`GitHub API error: ${response.status} - ${errorText}`);
-					}
-
-					const data = await response.json();
-					console.log('GitHub API response:', data);
-					
-					if (data && data.length > 0) {
-						const issue = data[0];
-						console.log('Found issue:', issue);
-						document.getElementById('prototypeTitle').textContent = issue.title;
-						document.getElementById('prototypeMonth').textContent = issue.labels.find(l => l.name.startsWith('month-'))?.name.replace('month-', 'Month ') || 'Month 1';
-						document.getElementById('prototypeStatus').textContent = `Status: ${issue.state}`;
-						document.getElementById('prototypeContent').innerHTML = marked.parse(issue.body);
-					} else {
-						console.log('No issues found with prototype label');
-						document.getElementById('prototypeContent').innerHTML = `
-							<h2>About This Prototype</h2>
-							<p>This is the first prototype in the 6-month journey. Each prototype will explore different aspects of AI and technology, with detailed documentation of the process, challenges, and learnings.</p>
-							
-							<h2>Current Progress</h2>
-							<p>Prototype content will be updated here as the project progresses. This section will include:</p>
-							<ul>
-								<li>Project overview</li>
-								<li>Technical details</li>
-								<li>Progress updates</li>
-								<li>Challenges and solutions</li>
-								<li>Final results and learnings</li>
-							</ul>
-						`;
-					}
-				} catch (error) {
-					console.error('Error loading prototype:', error);
-					document.getElementById('prototypeContent').innerHTML = `
-						<p>Error loading prototype content. Please try again later.</p>
-						<p class="error-details">${error.message}</p>
-						<p>Please check the browser console for more details.</p>
-					`;
-				}
-			}
-
-			// Add marked.js for Markdown parsing
-			const script = document.createElement('script');
-			script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-			script.onload = loadPrototype;
-			document.head.appendChild(script);
+			// Initialize the prototype page
+			document.addEventListener('DOMContentLoaded', loadPrototype);
 		</script>
 	</body>
 </html> 
