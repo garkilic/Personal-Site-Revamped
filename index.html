@@ -1,130 +1,72 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Griffin Arkilic</title>
+		<title>Griffin Arkilic | AI Developer & Tech Scout</title>
 		<link rel="icon" href="Img/Skull.jpeg" />
 
-		<meta
-			name="description"
-			content="Griffin Arkilic is an AI developer, Entrepreneur, and AI Tech Scout."
-		/>
+		<!-- Primary Meta Tags -->
+		<meta name="title" content="Griffin Arkilic | AI Developer & Tech Scout">
+		<meta name="description" content="Griffin Arkilic is an AI developer, Entrepreneur, and AI Tech Scout based in Los Angeles. Building innovative prototypes and exploring the future of technology." />
+		<meta name="keywords" content="AI Developer, Tech Scout, Entrepreneur, Los Angeles, AI Technology, Prototype Development, AI Prototype Lab" />
+		<meta name="author" content="Griffin Arkilic" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
+		<meta property="og:title" content="Griffin Arkilic | AI Developer & Tech Scout" />
+		<meta property="og:description" content="Griffin Arkilic is an AI developer, Entrepreneur, and AI Tech Scout based in Los Angeles. Building innovative prototypes and exploring the future of technology." />
+		<meta property="og:image" content="Img/Skull.jpeg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
+		<meta property="twitter:title" content="Griffin Arkilic | AI Developer & Tech Scout" />
+		<meta property="twitter:description" content="Griffin Arkilic is an AI developer, Entrepreneur, and AI Tech Scout based in Los Angeles. Building innovative prototypes and exploring the future of technology." />
+		<meta property="twitter:image" content="Img/Skull.jpeg" />
+
+		<!-- Additional Meta Tags -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://garkilic.github.io/Personal-Site-Revamped/" />
+
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="Style/style.css" />
-		<style>
-			.main--section {
-				min-height: 100vh;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: 2rem;
-				background: #000;
-				color: #fff;
-			}
-			.hero-section {
-				text-align: center;
-				margin-bottom: 4rem;
-				max-width: 800px;
-			}
-			.Skull {
-				width: 150px;
-				height: 150px;
-				border-radius: 50%;
-				margin-bottom: 2rem;
-			}
-			.nav--bar {
-				margin-top: 2rem;
-				display: flex;
-				gap: 2rem;
-				flex-wrap: wrap;
-				justify-content: center;
-			}
-			.nav--bar a {
-				color: #fff;
-				text-decoration: none;
-				transition: opacity 0.3s ease;
-			}
-			.nav--bar a:hover {
-				opacity: 0.7;
-			}
-			.current-prototype {
-				width: 100%;
-				max-width: 1000px;
-				margin-top: 2rem;
-				padding: 2rem;
-				background: rgba(255, 255, 255, 0.05);
-				border-radius: 15px;
-				text-align: center;
-			}
-			.current-prototype h2 {
-				font-size: 2rem;
-				margin-bottom: 1rem;
-			}
-			.current-prototype p {
-				margin-bottom: 2rem;
-				line-height: 1.6;
-			}
-			.prototype-link {
-				display: inline-block;
-				padding: 1rem 2rem;
-				background: #fff;
-				color: #000;
-				text-decoration: none;
-				border-radius: 30px;
-				transition: transform 0.3s ease;
-			}
-			.prototype-link:hover {
-				transform: translateY(-3px);
-			}
-			#cursor {
-				animation: blink 1s infinite;
-			}
-			@keyframes blink {
-				0%, 100% { opacity: 1; }
-				50% { opacity: 0; }
-			}
-		</style>
-		<!-- Google tag (gtag.js) -->
-		<script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-1ZYSRV6SWC"
-		></script>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="styles/main.css" />
+
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZYSRV6SWC"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
+			function gtag() { dataLayer.push(arguments); }
 			gtag("js", new Date());
-
 			gtag("config", "G-1ZYSRV6SWC");
 		</script>
 	</head>
 	<body>
 		<div class="main--section">
 			<div class="hero-section">
-				<img class="Skull" src="Img/Skull.jpeg" />
+				<img class="Skull" src="Img/Skull.jpeg" alt="Griffin Arkilic Profile" />
 				<h1>Griffin Arkilic</h1>
 				<h2>Based in Los Angeles, CA</h2>
 				<span id="typing"></span><span id="cursor">|</span>
 				<p class="pdoom">Current P(doom):0.1%</p>
 				<div class="nav--bar">
-					<a href="mailto: garkilic@gmail.com">Email</a>
-					<a href="Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf">Resume</a>
-					<a href="Pages/prototype-template.html">6 Month Journey</a>
+					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
+					<a href="Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
+					<a href="Pages/prototype-template.html" aria-label="View AI Prototype Lab">AI Prototype Lab</a>
 				</div>
 			</div>
 
 			<div class="current-prototype">
-				<h2>6 Prototypes in 6 Months</h2>
-				<p>A journey of rapid prototyping and innovation. Each month, I'll build and document a new prototype exploring different aspects of AI and technology.</p>
-				<a href="Pages/prototype-template.html" class="prototype-link">View Current Prototype</a>
+				<h2>AI Prototype Lab</h2>
+				<p>A laboratory of rapid prototyping and AI innovation. Each month, I build and document a new prototype exploring different aspects of artificial intelligence and emerging technologies.</p>
+				<a href="Pages/prototype-template.html" class="prototype-link" aria-label="View Current Prototype">View Current Prototype</a>
 			</div>
 		</div>
 

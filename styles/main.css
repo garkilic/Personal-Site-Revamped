@@ -1,0 +1,13 @@
+/* Import component styles */
+@import 'components/navigation.css';
+@import 'components/prototype.css';
+@import 'components/layout.css';
+@import 'components/current-prototype.css';
+
+/* Global styles */
+body {
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+} 
