@@ -4,14 +4,9 @@ const GITHUB_REPO = 'garkilic/Personal-Site-Revamped';
 
 async function fetchGitHubIssues() {
     try {
-        if (!window.config || !window.config.GITHUB_TOKEN) {
-            throw new Error('GitHub configuration not loaded. Please check if config.js is properly loaded.');
-        }
-
         const response = await fetch(`${GITHUB_API_URL}/repos/${GITHUB_REPO}/issues`, {
             headers: {
-                'Accept': 'application/vnd.github.v3+json',
-                'Authorization': `token ${window.config.GITHUB_TOKEN}`
+                'Accept': 'application/vnd.github.v3+json'
             },
             cache: 'no-store'
         });
