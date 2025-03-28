@@ -76,7 +76,17 @@
 		<script src="../js/typing.js"></script>
 		<script>
 			// Initialize the prototype page
-			document.addEventListener('DOMContentLoaded', loadPrototype);
+			document.addEventListener('DOMContentLoaded', () => {
+				try {
+					if (!window.config) {
+						throw new Error('Configuration not loaded. Please check if config.js is properly loaded.');
+					}
+					loadPrototype();
+				} catch (error) {
+					console.error('Error initializing prototype page:', error);
+					showError(error);
+				}
+			});
 		</script>
 	</body>
 </html> 
