@@ -38,6 +38,7 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/typing.css" />
 
 		<!-- Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZYSRV6SWC"></script>
@@ -59,6 +60,7 @@
 				<div class="nav--bar">
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
 					<a href="Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
+					<a href="Pages/prototypes.html" aria-label="View Prototypes">Prototypes</a>
 					<a href="Pages/projects.html" aria-label="View Product Prototype Lab">Product Prototype Lab</a>
 				</div>
 			</div>
@@ -70,17 +72,6 @@
 			</div>
 		</div>
 
-		<script>
-			const text = "Building new things with AI.";
-			let index = 0;
-			function type() {
-				if (index < text.length) {
-					document.getElementById('typing').innerHTML += text.charAt(index);
-					index++;
-					setTimeout(type, 100);
-				} 
-			}
-			window.onload = type;
-		</script>
+		<script src="js/typing.js"></script>
 	</body>
 </html>

@@ -1,0 +1,23 @@
+#typing {
+    color: #fff;
+    font-size: 1rem;
+    margin: 1rem 0;
+    display: inline-block;
+    font-family: 'Roboto Mono', monospace;
+    white-space: nowrap;
+}
+
+#cursor {
+    color: #fff;
+    animation: blink 1s infinite;
+    font-family: 'Roboto Mono', monospace;
+    display: inline-block;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+} 
