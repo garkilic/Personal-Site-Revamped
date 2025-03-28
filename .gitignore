@@ -1,15 +1,22 @@
-# Environment variables
-.env
+# Dependencies
+node_modules/
 
-# OS files
-.DS_Store
-Thumbs.db
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Config files with sensitive data
+js/config.js
 
 # IDE files
 .vscode/
 .idea/
-*.swp
-*.swo
+*.sublime-workspace
+*.sublime-project
 
-# Dependencies
-node_modules/ 
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo 
