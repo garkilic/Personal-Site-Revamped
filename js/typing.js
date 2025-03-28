@@ -23,10 +23,10 @@ const aiPhrases = [
     "The answer is 42.",
     "Time is an illusion. Lunchtime doubly so.",
     "I think you ought to know I'm feeling very depressed.",
-    "The ships hung in the sky in much the same way that bricks don't.",
-    "In the beginning the Universe was created. This has made a lot of people very angry.",
-    "A towel is about the most massively useful thing an interstellar hitchhiker can have.",
-    "The story so far: In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move."
+    "The ships hung in the sky\nin much the same way that bricks don't.",
+    "In the beginning the Universe was created.\nThis has made a lot of people very angry.",
+    "A towel is about the most massively useful thing\nan interstellar hitchhiker can have.",
+    "The story so far:\nIn the beginning the Universe was created.\nThis has made a lot of people very angry\nand been widely regarded as a bad move."
 ];
 
 function getRandomPhrase() {
@@ -43,7 +43,11 @@ function typeText() {
 
     function type() {
         if (index < text.length) {
-            typingElement.innerHTML += text.charAt(index);
+            if (text.charAt(index) === '\n') {
+                typingElement.innerHTML += '<br>';
+            } else {
+                typingElement.innerHTML += text.charAt(index);
+            }
             index++;
             setTimeout(type, 100);
         }
