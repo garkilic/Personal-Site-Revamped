@@ -38,6 +38,7 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="../styles/main.css" />
+		<link rel="stylesheet" href="../styles/typing.css" />
 	</head>
 	<body>
 		<div class="main--section">
@@ -45,6 +46,7 @@
 				<img class="Skull" src="../Img/Skull.jpeg" alt="Griffin Arkilic Profile" />
 				<h1>Griffin Arkilic</h1>
 				<h2>Based in Los Angeles, CA</h2>
+				<span id="typing"></span><span id="cursor">|</span>
 				<div class="nav--bar">
 					<a href="../index.html" aria-label="Return to Home">Home</a>
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
@@ -69,6 +71,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 		<!-- Load our GitHub API functionality -->
 		<script src="../js/github-api.js"></script>
+		<script src="../js/typing.js"></script>
 		<script>
 			// Initialize the prototype page
 			document.addEventListener('DOMContentLoaded', loadPrototype);
