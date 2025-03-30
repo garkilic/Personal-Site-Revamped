@@ -34,7 +34,7 @@ function filterPrototypeIssues(issues) {
             label.name === 'prototype2' ||
             label.name.startsWith('prototype')
         )
-    ).sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by creation date, oldest first
+    ).sort((a, b) => b.number - a.number); // Sort by issue number, newest first
 }
 
 function getMonthLabel(issue) {
@@ -65,14 +65,19 @@ function updatePrototypeUI(issue) {
     // Update issue toggles
     if (issueToggles) {
         issueToggles.innerHTML = '';
-        prototypeIssues.forEach((prototypeIssue, index) => {
+        // Create a reversed copy of the array for display
+        const reversedIssues = [...prototypeIssues].reverse();
+        reversedIssues.forEach((prototypeIssue, index) => {
             const toggleLink = document.createElement('a');
-            toggleLink.href = '#';
+            toggleLink.href = `#issue-${prototypeIssue.number}`;
             toggleLink.innerHTML = `Prototype <span class="prototype-number">${index + 1}</span>`;
-            toggleLink.className = `issue-toggle ${index === currentIssueIndex ? 'active' : ''}`;
+            // Calculate the correct index for the active state
+            const originalIndex = prototypeIssues.length - 1 - index;
+            toggleLink.className = `issue-toggle ${originalIndex === currentIssueIndex ? 'active' : ''}`;
             toggleLink.onclick = (e) => {
                 e.preventDefault();
-                currentIssueIndex = index;
+                currentIssueIndex = originalIndex;
+                window.location.hash = `issue-${prototypeIssue.number}`;
                 updatePrototypeUI(prototypeIssue);
             };
             issueToggles.appendChild(toggleLink);
@@ -154,7 +159,21 @@ async function loadPrototype() {
         console.log('Filtered prototype issues:', prototypeIssues);
         
         if (prototypeIssues.length > 0) {
-            currentIssueIndex = 0; // Start with the most recent issue
+            // Check for issue hash in URL
+            const hash = window.location.hash;
+            const issueNumber = hash ? parseInt(hash.replace('#issue-', '')) : null;
+            
+            if (issueNumber) {
+                // Find the index of the requested issue
+                const issueIndex = prototypeIssues.findIndex(issue => issue.number === issueNumber);
+                if (issueIndex !== -1) {
+                    currentIssueIndex = issueIndex;
+                }
+            } else {
+                // Default to the newest prototype (index 0 since toggles are newest to oldest)
+                currentIssueIndex = 0;
+            }
+            
             updatePrototypeUI(prototypeIssues[currentIssueIndex]);
         } else {
             showDefaultContent();
