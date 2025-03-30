@@ -59,7 +59,15 @@ function updatePrototypeUI(issue) {
     // Update content
     prototypeTitle.textContent = issue.title;
     prototypeMonth.textContent = getMonthLabel(issue);
-    prototypeStatus.textContent = `Status: ${issue.state}`;
+    
+    // Create status with link if available
+    const statusText = `Status: ${issue.state}`;
+    // Use Super Tech Scout URL for Prototype 1, GitHub URL for others
+    const prototypeLink = issue.number === prototypeIssues[prototypeIssues.length - 1].number 
+        ? 'https://super-tech-scout.netlify.app'
+        : issue.html_url;
+    prototypeStatus.innerHTML = `${statusText} <a href="${prototypeLink}" target="_blank" rel="noopener noreferrer" class="prototype-link">View Prototype</a>`;
+    
     prototypeContent.innerHTML = marked.parse(issue.body);
 
     // Update issue toggles

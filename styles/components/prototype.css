@@ -25,6 +25,21 @@
     color: #888;
 }
 
+.prototype-meta .prototype-link {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.prototype-meta .prototype-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 .prototype-content {
     line-height: 1.8;
     font-size: 1.1rem;
