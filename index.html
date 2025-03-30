@@ -68,10 +68,21 @@
 			<div class="current-prototype">
 				<h2>Product Prototype Lab</h2>
 				<p>A laboratory and blog outlining my rapid prototyping and product innovation. Here, I build and document new prototypes exploring different aspects of product development and emerging technologies. <br>Build fast, fix things.</p>
-				<a href="Pages/projects.html" class="prototype-link" aria-label="View Current Prototype">View Current Progress</a>
+				<a href="Pages/projects.html" class="prototype-link" id="currentProgressLink" aria-label="View Current Prototype">View Current Prototype</a>
 			</div>
 		</div>
 
 		<script src="js/typing.js"></script>
+		<script src="js/github-api.js"></script>
+		<script>
+			// Update the current progress link to point to the most recent issue
+			document.addEventListener('DOMContentLoaded', async () => {
+				const currentProgressLink = document.getElementById('currentProgressLink');
+				if (currentProgressLink) {
+					const mostRecentUrl = await getMostRecentIssueUrl();
+					currentProgressLink.href = mostRecentUrl;
+				}
+			});
+		</script>
 	</body>
 </html>
