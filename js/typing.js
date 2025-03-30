@@ -5,16 +5,7 @@ const aiPhrases = [
     "Training neural networks.",
     "Optimizing machine learning models.",
     "Creating AI-powered solutions.",
-    "Developing intelligent systems.",
-    "Coding with artificial intelligence.",
-    "Building the future of AI.",
-    "Experimenting with deep learning.",
-    "Designing AI architectures.",
-    "Training transformer models.",
-    "Building autonomous systems.",
-    "Developing AI applications.",
-    "Creating smart algorithms.",
-    "Exploring AI frontiers.",
+    
     
     // Hitchhiker's Guide to the Galaxy Quotes
     "Don't Panic.",
@@ -22,11 +13,6 @@ const aiPhrases = [
     "So long, and thanks for all the fish.",
     "The answer is 42.",
     "Time is an illusion. Lunchtime doubly so.",
-    "I think you ought to know I'm feeling very depressed.",
-    "The ships hung in the sky\nin much the same way that bricks don't.",
-    "In the beginning the Universe was created.\nThis has made a lot of people very angry.",
-    "A towel is about the most massively useful thing\nan interstellar hitchhiker can have.",
-    "The story so far:\nIn the beginning the Universe was created.\nThis has made a lot of people very angry\nand been widely regarded as a bad move."
 ];
 
 function getRandomPhrase() {

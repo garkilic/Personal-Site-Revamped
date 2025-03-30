@@ -5,6 +5,7 @@
     display: inline-block;
     font-family: 'Roboto Mono', monospace;
     white-space: nowrap;
+    line-height: 1.5;
 }
 
 #cursor {
@@ -12,9 +13,10 @@
     animation: blink 1s infinite;
     font-family: 'Roboto Mono', monospace;
     display: inline-block;
-    font-size: 1.5rem;
-    vertical-align: middle;
+    font-size: 1rem;
+    vertical-align: baseline;
     line-height: 1;
+    margin-left: 2px;
 }
 
 @keyframes blink {
