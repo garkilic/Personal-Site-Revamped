@@ -10,10 +10,15 @@
     color: #fff;
     text-decoration: none;
     transition: opacity 0.3s ease;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
 }
 
 .nav--bar a:hover {
     opacity: 0.7;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .back-button {
@@ -27,4 +32,22 @@
 
 .back-button:hover {
     opacity: 1;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .nav--bar {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 2rem auto;
+    }
+    
+    .nav--bar a {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
 } 
