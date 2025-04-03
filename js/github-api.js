@@ -130,8 +130,8 @@ function showDefaultContent() {
     
     prototypeContent.innerHTML = `
         <div class="default-content fade-in">
-            <h2>About Product Prototype Lab</h2>
-            <p>Welcome to my Product Prototype Lab, where I build and explore experimental product prototypes. Each prototype explores different aspects of product development and emerging technologies.</p>
+            <h2>About Development Blog</h2>
+            <p>Welcome to my Development Blog, where I build and explore experimental prototypes. Each prototype explores different aspects of development and emerging technologies.</p>
             
             <h2>Current Progress</h2>
             <p>Prototype content will be updated here as each project progresses. Content includes:</p>
