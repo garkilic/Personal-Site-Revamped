@@ -62,10 +62,15 @@ function updatePrototypeUI(issue) {
     
     // Create status with link if available
     const statusText = `Status: ${issue.state}`;
-    // Use Super Tech Scout URL for Prototype 1, GitHub URL for others
-    const prototypeLink = issue.number === prototypeIssues[prototypeIssues.length - 1].number 
-        ? 'https://super-tech-scout.netlify.app'
-        : issue.html_url;
+    // Use Super Tech Scout URL for Prototype 1, KookCast for Prototype 2, GitHub URL for others
+    let prototypeLink;
+    if (issue.number === prototypeIssues[prototypeIssues.length - 1].number) {
+        prototypeLink = 'https://super-tech-scout.netlify.app';
+    } else if (issue.number === prototypeIssues[prototypeIssues.length - 2].number) {
+        prototypeLink = 'https://kookcast.netlify.app';
+    } else {
+        prototypeLink = issue.html_url;
+    }
     prototypeStatus.innerHTML = `${statusText} <a href="${prototypeLink}" target="_blank" rel="noopener noreferrer" class="prototype-link">View Prototype</a>`;
     
     prototypeContent.innerHTML = marked.parse(issue.body);
