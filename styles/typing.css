@@ -1,11 +1,15 @@
 #typing {
     color: #fff;
     font-size: 1rem;
-    margin: 1rem 0;
+    margin: 0;
     display: inline-block;
     font-family: 'Roboto Mono', monospace;
     white-space: nowrap;
-    line-height: 1.5;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
 #cursor {
@@ -14,7 +18,7 @@
     font-family: 'Roboto Mono', monospace;
     display: inline-block;
     font-size: 1rem;
-    vertical-align: baseline;
+    vertical-align: middle;
     line-height: 1;
     margin-left: 2px;
 }
@@ -22,4 +26,34 @@
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Ensure the typing container stays on one line */
+.hero-section span {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    #typing {
+        white-space: normal;
+        word-break: break-word;
+        display: inline;
+    }
+
+    #cursor {
+        display: inline;
+    }
+
+    .hero-section span {
+        white-space: normal;
+        word-break: break-word;
+        display: inline;
+    }
 } 
