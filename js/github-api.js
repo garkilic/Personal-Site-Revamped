@@ -67,7 +67,7 @@ function updatePrototypeUI(issue) {
     if (issue.number === prototypeIssues[prototypeIssues.length - 1].number) {
         prototypeLink = 'https://super-tech-scout.netlify.app';
     } else if (issue.number === prototypeIssues[prototypeIssues.length - 2].number) {
-        prototypeLink = 'https://kookcast.vercel.app';
+        prototypeLink = 'https://kook-cast.com';
     } else {
         prototypeLink = issue.html_url;
     }
