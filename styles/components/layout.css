@@ -19,4 +19,19 @@
     height: 150px;
     border-radius: 50%;
     margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .main--section {
+    padding: 1rem;
+  }
+  .hero-section {
+    margin-bottom: 2rem;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  .Skull {
+    width: 90px;
+    height: 90px;
+  }
 } 

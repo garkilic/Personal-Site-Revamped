@@ -5,8 +5,13 @@
 @import 'components/current-prototype.css';
 
 /* Global styles */
-body {
+html, body {
+    height: 100%;
     margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
     font-family: 'Roboto Mono', monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -111,16 +116,31 @@ body {
 /* Responsive styles for issue toggles */
 @media (max-width: 768px) {
     .issue-toggles {
+        flex-direction: column;
+        align-items: stretch;
         gap: 0.5rem;
         margin: 1rem 0 2rem;
     }
     
     .issue-toggle {
-        padding: 0.3rem 0.8rem;
+        width: 100%;
+        justify-content: center;
         font-size: 0.95rem;
     }
     
     .issue-toggle .prototype-number {
         font-size: 1.05rem;
+    }
+    
+    .prototype-navigation {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+    }
+    
+    .prototype-navigation a {
+        width: 100%;
+        text-align: center;
+        font-size: 0.95rem;
     }
 } 

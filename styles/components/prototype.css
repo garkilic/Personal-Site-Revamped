@@ -128,4 +128,31 @@
     text-align: center;
     color: #888;
     margin: 2rem 0;
+}
+
+/* Responsive styles for prototype container and content */
+@media (max-width: 768px) {
+  .prototype-container {
+    padding: 1rem;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .prototype-header h1 {
+    font-size: 1.5rem;
+  }
+  .prototype-meta {
+    flex-direction: column;
+    gap: 0.7rem;
+    font-size: 0.95rem;
+  }
+  .prototype-content {
+    font-size: 1rem;
+    padding: 0.2rem;
+  }
+  .prototype-content h1 {
+    font-size: 1.2rem;
+  }
+  .prototype-content h2 {
+    font-size: 1rem;
+  }
 } 
