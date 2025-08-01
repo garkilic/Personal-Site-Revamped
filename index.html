@@ -2,27 +2,27 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Griffin Arkilic | AI Developer & Tech Scout</title>
+		<title>Griffin Arkilic | AI Developer</title>
 		<link rel="icon" href="Img/Skull.jpeg" />
 
 		<!-- Primary Meta Tags -->
-		<meta name="title" content="Griffin Arkilic | AI Developer & Tech Scout">
-		<meta name="description" content="Griffin Arkilic is an AI developer, Entrepreneur, and AI Tech Scout based in Los Angeles. Building innovative prototypes and exploring the future of technology." />
-		<meta name="keywords" content="AI Developer, Tech Scout, Entrepreneur, Los Angeles, AI Technology, Prototype Development, Development Blog" />
+		<meta name="title" content="Griffin Arkilic | AI Developer">
+		<meta name="description" content="AI developer in Los Angeles building prototypes and exploring new tech." />
+		<meta name="keywords" content="AI Developer, Los Angeles, Prototypes, Tech" />
 		<meta name="author" content="Griffin Arkilic" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
-		<meta property="og:title" content="Griffin Arkilic | AI Developer & Tech Scout" />
-		<meta property="og:description" content="Griffin Arkilic is an AI developer, Entrepreneur, and AI Tech Scout based in Los Angeles. Building innovative prototypes and exploring the future of technology." />
+		<meta property="og:title" content="Griffin Arkilic | AI Developer" />
+		<meta property="og:description" content="AI developer in Los Angeles building prototypes and exploring new tech." />
 		<meta property="og:image" content="Img/Skull.jpeg" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
-		<meta property="twitter:title" content="Griffin Arkilic | AI Developer & Tech Scout" />
-		<meta property="twitter:description" content="Griffin Arkilic is an AI developer, Entrepreneur, and AI Tech Scout based in Los Angeles. Building innovative prototypes and exploring the future of technology." />
+		<meta property="twitter:title" content="Griffin Arkilic | AI Developer" />
+		<meta property="twitter:description" content="AI developer in Los Angeles building prototypes and exploring new tech." />
 		<meta property="twitter:image" content="Img/Skull.jpeg" />
 
 		<!-- Additional Meta Tags -->
@@ -61,26 +61,30 @@
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
 					<a href="Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
 					<a href="Pages/prototypes.html" aria-label="View Prototypes">Prototypes</a>
-					<a href="Pages/projects.html" aria-label="View Development Blog">Development Blog</a>
 				</div>
 			</div>
 
-			<div class="current-prototype">
-				<h2>Development Blog</h2>
-				<p>A blog documenting my development and innovation. Here, I build prototypes and explore emerging technologies. Follow along if you dare.</p>
-				<a href="Pages/projects.html" class="prototype-link" id="currentProgressLink" aria-label="View Current Project">View Current Project</a>
+			<div class="blog-link-section">
+				<a href="Pages/projects.html" class="blog-link" aria-label="View Development Blog">
+					<span class="blog-title">Development Blog</span>
+					<span class="last-posted" id="lastPosted">Last posted: Loading...</span>
+				</a>
 			</div>
 		</div>
 
 		<script src="js/typing.js"></script>
 		<script src="js/github-api.js"></script>
 		<script>
-			// Update the current progress link to point to the most recent issue
+			// Update the last posted date
 			document.addEventListener('DOMContentLoaded', async () => {
-				const currentProgressLink = document.getElementById('currentProgressLink');
-				if (currentProgressLink) {
-					const mostRecentUrl = await getMostRecentIssueUrl();
-					currentProgressLink.href = mostRecentUrl;
+				const lastPostedElement = document.getElementById('lastPosted');
+				if (lastPostedElement) {
+					try {
+						const lastPostedDate = await getLastPostedDate();
+						lastPostedElement.textContent = `Last posted: ${lastPostedDate}`;
+					} catch (error) {
+						lastPostedElement.textContent = 'Last posted: Recently';
+					}
 				}
 			});
 		</script>

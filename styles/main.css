@@ -15,6 +15,30 @@ html, body {
     font-family: 'Roboto Mono', monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Mobile-first responsive design */
+* {
+    box-sizing: border-box;
+}
+
+/* Touch-friendly interactions */
+button, a, input, textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent horizontal scroll on mobile */
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Improve text rendering on mobile */
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 } 
 
 /* Fade-in Animation */
@@ -47,6 +71,64 @@ html, body {
     font-size: 0.9rem;
     color: #ff6b6b;
     margin: 1rem 0;
+}
+
+/* Blog link section styles */
+.blog-link-section {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.blog-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 1.5rem 2rem;
+    border: 2px solid rgba(0, 255, 0, 0.3);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(0, 255, 0, 0.1);
+    min-width: 250px;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.blog-link:hover {
+    background: rgba(0, 255, 0, 0.15);
+    border-color: rgba(0, 255, 0, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 255, 0, 0.3);
+}
+
+.blog-link:hover::before {
+    left: 100%;
+}
+
+.blog-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.last-posted {
+    font-size: 0.9rem;
+    color: rgba(0, 255, 0, 0.8);
 }
 
 .prototype-navigation {
@@ -113,34 +195,101 @@ html, body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive styles for issue toggles */
+/* Mobile-first responsive styles */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
     .issue-toggles {
         flex-direction: column;
         align-items: stretch;
         gap: 0.5rem;
         margin: 1rem 0 2rem;
+        padding: 0 1rem;
     }
     
     .issue-toggle {
         width: 100%;
         justify-content: center;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+        min-height: 44px;
     }
     
     .issue-toggle .prototype-number {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
     
     .prototype-navigation {
         flex-direction: column;
         align-items: stretch;
         gap: 0.7rem;
+        padding: 0 1rem;
     }
     
     .prototype-navigation a {
         width: 100%;
         text-align: center;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+        min-height: 44px;
+    }
+    
+    .error-content {
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .error-details {
+        font-size: 0.8rem;
+    }
+    
+    .blog-link-section {
+        margin-top: 2rem;
+    }
+    
+    .blog-link {
+        padding: 1.3rem 1.8rem;
+        min-width: 220px;
+    }
+    
+    .blog-title {
+        font-size: 1.1rem;
+    }
+    
+    .last-posted {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    .issue-toggle {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .prototype-navigation a {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .blog-link {
+        padding: 1.2rem 1.5rem;
+        min-width: 200px;
+    }
+    
+    .blog-title {
+        font-size: 1.1rem;
+    }
+    
+    .last-posted {
+        font-size: 0.8rem;
     }
 } 

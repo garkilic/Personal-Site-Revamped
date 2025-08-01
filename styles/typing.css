@@ -45,15 +45,30 @@
         white-space: normal;
         word-break: break-word;
         display: inline;
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
 
     #cursor {
         display: inline;
+        font-size: 0.9rem;
+        margin-left: 1px;
     }
 
     .hero-section span {
         white-space: normal;
         word-break: break-word;
         display: inline;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    #typing {
+        font-size: 0.85rem;
+    }
+    
+    #cursor {
+        font-size: 0.85rem;
     }
 } 

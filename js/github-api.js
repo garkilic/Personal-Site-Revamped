@@ -210,4 +210,26 @@ async function getMostRecentIssueUrl() {
         console.error('Error getting most recent issue URL:', error);
         return 'Pages/projects.html';
     }
+}
+
+// Function to get the last posted date
+async function getLastPostedDate() {
+    try {
+        const issues = await fetchGitHubIssues();
+        const prototypeIssues = filterPrototypeIssues(issues);
+        
+        if (prototypeIssues.length > 0) {
+            const lastIssue = prototypeIssues[0]; // Most recent issue
+            const date = new Date(lastIssue.updated_at);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+        return 'Recently';
+    } catch (error) {
+        console.error('Error getting last posted date:', error);
+        return 'Recently';
+    }
 } 

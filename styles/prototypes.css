@@ -5,6 +5,7 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .prototype-card {
@@ -93,5 +94,79 @@
     .prototypes-grid {
         grid-template-columns: 1fr;
         padding: 1rem;
+        gap: 1.5rem;
+    }
+    
+    .prototype-card {
+        padding: 1.5rem;
+    }
+    
+    .prototype-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .prototype-card p {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.5;
+    }
+    
+    .prototype-card .prototype-link {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .deprecated-section {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .live-tag, .deprecated-tag {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+        margin-left: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .prototypes-grid {
+        padding: 0.8rem;
+        gap: 1.2rem;
+    }
+    
+    .prototype-card {
+        padding: 1.2rem;
+    }
+    
+    .prototype-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .prototype-card p {
+        font-size: 0.85rem;
+    }
+    
+    .prototype-card .prototype-link {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 1rem;
+    }
+    
+    .live-tag, .deprecated-tag {
+        font-size: 0.6rem;
+        padding: 0.12rem 0.35rem;
     }
 } 
