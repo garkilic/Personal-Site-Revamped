@@ -39,7 +39,14 @@ function filterPrototypeIssues(issues) {
 
 function getMonthLabel(issue) {
     const monthLabel = issue.labels.find(label => label.name.startsWith('month-'));
-    return monthLabel ? monthLabel.name.replace('month-', 'Month ') : 'Month 1';
+    if (!monthLabel) return 'Month 1';
+    
+    const monthNumber = monthLabel.name.replace('month-', '');
+    // Add "-" to Month 2 to indicate it's ongoing
+    if (monthNumber === '2') {
+        return 'Month 2 -';
+    }
+    return `Month ${monthNumber}`;
 }
 
 function updatePrototypeUI(issue) {
