@@ -69,14 +69,14 @@ function updatePrototypeUI(issue) {
     
     // Create status with link if available
     const statusText = `Status: ${issue.state}`;
-    // Use Solution Threads URL for newest prototype, Super Tech Scout for second newest, KookCast for third newest, GitHub URL for others
+    // Use Solution Threads URL for newest prototype, GitHub repos for deprecated ones, GitHub URL for others
     let prototypeLink;
     if (issue.number === prototypeIssues[0].number) {
         prototypeLink = 'https://www.solutionthreads.com';
     } else if (issue.number === prototypeIssues[1].number) {
-        prototypeLink = 'https://super-tech-scout.netlify.app';
+        prototypeLink = 'https://github.com/garkilic/super-tech-scout';
     } else if (issue.number === prototypeIssues[2].number) {
-        prototypeLink = 'https://kook-cast.com';
+        prototypeLink = 'https://github.com/garkilic/kookcast';
     } else {
         prototypeLink = issue.html_url;
     }
