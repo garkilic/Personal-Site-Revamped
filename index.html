@@ -59,24 +59,34 @@
 				<p class="pdoom">Current P(doom):0.1%</p>
 				<div class="nav--bar">
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
-					<a href="Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
+					<a href="Files/Griffin Arkilic Resume - 2025.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
 					<a href="Pages/prototypes.html" aria-label="View Prototypes">Prototypes</a>
 				</div>
 			</div>
 
-			<div class="blog-link-section">
-				<a href="Pages/projects.html" class="blog-link" aria-label="View Development Blog">
-					<span class="blog-title">Development Blog</span>
-					<span class="last-posted" id="lastPosted">Last posted: Loading...</span>
-				</a>
+			<div class="blogs-container">
+				<div class="blog-link-section">
+					<a href="Pages/projects.html" class="blog-link" aria-label="View Development Blog">
+						<span class="blog-title">Dev Blog</span>
+						<span class="last-posted" id="lastPosted">Last posted: Loading...</span>
+					</a>
+				</div>
+				
+				<div class="blog-link-section">
+					<a href="Pages/blog.html" class="blog-link" aria-label="View Blog">
+						<span class="blog-title">Random Writing</span>
+						<span class="last-posted" id="lastBlogPosted">Last posted: Loading...</span>
+					</a>
+				</div>
 			</div>
 		</div>
 
 		<script src="js/typing.js"></script>
 		<script src="js/github-api.js"></script>
 		<script>
-			// Update the last posted date
+			// Update the last posted dates
 			document.addEventListener('DOMContentLoaded', async () => {
+				// Update development blog last posted date
 				const lastPostedElement = document.getElementById('lastPosted');
 				if (lastPostedElement) {
 					try {
@@ -84,6 +94,17 @@
 						lastPostedElement.textContent = `Last posted: ${lastPostedDate}`;
 					} catch (error) {
 						lastPostedElement.textContent = 'Last posted: Recently';
+					}
+				}
+				
+				// Update blog last posted date
+				const lastBlogPostedElement = document.getElementById('lastBlogPosted');
+				if (lastBlogPostedElement) {
+					try {
+						const lastBlogDate = await getLastBlogDate();
+						lastBlogPostedElement.textContent = `Last posted: ${lastBlogDate}`;
+					} catch (error) {
+						lastBlogPostedElement.textContent = 'Last posted: Recently';
 					}
 				}
 			});

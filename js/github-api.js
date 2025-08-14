@@ -4,6 +4,8 @@ const GITHUB_REPO = 'garkilic/Personal-Site-Revamped';
 
 let currentIssueIndex = 0;
 let prototypeIssues = [];
+let currentBlogIndex = 0;
+let blogIssues = [];
 
 async function fetchGitHubIssues() {
     try {
@@ -37,6 +39,14 @@ function filterPrototypeIssues(issues) {
     ).sort((a, b) => b.number - a.number); // Sort by issue number, newest first
 }
 
+function filterBlogIssues(issues) {
+    return issues.filter(issue => 
+        issue.labels.some(label => 
+            label.name === 'blog'
+        )
+    ).sort((a, b) => b.number - a.number); // Sort by issue number, newest first
+}
+
 function getMonthLabel(issue) {
     const monthLabel = issue.labels.find(label => label.name.startsWith('month-'));
     if (!monthLabel) return 'Month 1';
@@ -48,6 +58,8 @@ function getMonthLabel(issue) {
     }
     return `Month ${monthNumber}`;
 }
+
+
 
 function updatePrototypeUI(issue) {
     const prototypeTitle = document.getElementById('prototypeTitle');
@@ -138,6 +150,25 @@ function updatePrototypeUI(issue) {
     }
 }
 
+function updateBlogUI(issue) {
+    const blogTitle = document.getElementById('blogTitle');
+    const blogContent = document.getElementById('blogContent');
+    
+    // Check if elements exist before proceeding
+    if (!blogTitle || !blogContent) {
+        console.error('Required blog elements not found');
+        return;
+    }
+    
+    // Add fade-in animation class
+    blogTitle.classList.add('fade-in');
+    blogContent.classList.add('fade-in');
+    
+    // Update content
+    blogTitle.textContent = issue.title;
+    blogContent.innerHTML = marked.parse(issue.body);
+}
+
 function showDefaultContent() {
     const prototypeContent = document.getElementById('prototypeContent');
     prototypeContent.classList.add('fade-in');
@@ -160,6 +191,35 @@ function showDefaultContent() {
     `;
 }
 
+function showBlogDefaultContent() {
+    const blogContent = document.getElementById('blogContent');
+    
+    // Check if element exists before proceeding
+    if (!blogContent) {
+        console.error('Blog content element not found');
+        return;
+    }
+    
+    blogContent.classList.add('fade-in');
+    
+    blogContent.innerHTML = `
+        <div class="default-content fade-in">
+            <h2>About Random Writing</h2>
+            <p>Welcome to my random writing section, where I share thoughts, insights, and experiences about AI, development, and technology. Each post explores different aspects of the tech world and my journey as a developer.</p>
+            
+            <h2>What to Expect</h2>
+            <p>Content will be updated here as I write new posts. Topics include:</p>
+            <ul>
+                <li>AI insights and observations</li>
+                <li>Development tips and tricks</li>
+                <li>Technology trends and analysis</li>
+                <li>Personal experiences and learnings</li>
+                <li>Thoughts on emerging technologies</li>
+            </ul>
+        </div>
+    `;
+}
+
 function showError(error) {
     const prototypeContent = document.getElementById('prototypeContent');
     prototypeContent.classList.add('fade-in');
@@ -167,6 +227,26 @@ function showError(error) {
     prototypeContent.innerHTML = `
         <div class="error-content fade-in">
             <p>Error loading prototype content. Please try again later.</p>
+            <p class="error-details">${error.message}</p>
+            <p>Please check the browser console for more details.</p>
+        </div>
+    `;
+}
+
+function showBlogError(error) {
+    const blogContent = document.getElementById('blogContent');
+    
+    // Check if element exists before proceeding
+    if (!blogContent) {
+        console.error('Blog content element not found for error display');
+        return;
+    }
+    
+    blogContent.classList.add('fade-in');
+    
+    blogContent.innerHTML = `
+        <div class="error-content fade-in">
+            <p>Error loading blog content. Please try again later.</p>
             <p class="error-details">${error.message}</p>
             <p>Please check the browser console for more details.</p>
         </div>
@@ -205,6 +285,24 @@ async function loadPrototype() {
     }
 }
 
+async function loadBlog() {
+    try {
+        const issues = await fetchGitHubIssues();
+        console.log('All issues:', issues);
+        blogIssues = filterBlogIssues(issues);
+        console.log('Filtered blog issues:', blogIssues);
+        
+        if (blogIssues.length > 0) {
+            // Since there's only one blog post, always show the first one
+            updateBlogUI(blogIssues[0]);
+        } else {
+            showBlogDefaultContent();
+        }
+    } catch (error) {
+        showBlogError(error);
+    }
+}
+
 // Function to get the most recent issue URL
 async function getMostRecentIssueUrl() {
     try {
@@ -239,6 +337,28 @@ async function getLastPostedDate() {
         return 'Recently';
     } catch (error) {
         console.error('Error getting last posted date:', error);
+        return 'Recently';
+    }
+}
+
+// Function to get the last blog post date
+async function getLastBlogDate() {
+    try {
+        const issues = await fetchGitHubIssues();
+        const blogIssues = filterBlogIssues(issues);
+        
+        if (blogIssues.length > 0) {
+            const lastBlog = blogIssues[0]; // Most recent blog
+            const date = new Date(lastBlog.created_at);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+        return 'Recently';
+    } catch (error) {
+        console.error('Error getting last blog date:', error);
         return 'Recently';
     }
 } 
