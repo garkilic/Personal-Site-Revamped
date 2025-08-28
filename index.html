@@ -56,58 +56,43 @@
 				<h1>Griffin Arkilic</h1>
 				<h2>Based in Los Angeles, CA</h2>
 				<span id="typing"></span><span id="cursor">|</span>
-				<p class="pdoom">Current P(doom):0.1%</p>
+				<p class="pdoom"><a href="Pages/pdoom.html" aria-label="Learn about Pdoom and AGI">Current P(doom):0.1%</a></p>
 				<div class="nav--bar">
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
 					<a href="Files/Griffin Arkilic Resume - 2025.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
 					<a href="Pages/prototypes.html" aria-label="View Prototypes">Prototypes</a>
+					<a href="#" onclick="navigateToMostRecentDevBlog(); return false;" aria-label="View Development Blog">Dev Blog</a>
+					<a href="#" onclick="navigateToMostRecentBlog(); return false;" aria-label="View Blog">Random Writing</a>
 				</div>
 			</div>
 
-			<div class="blogs-container">
-				<div class="blog-link-section">
-					<a href="Pages/projects.html" class="blog-link" aria-label="View Development Blog">
-						<span class="blog-title">Dev Blog</span>
-						<span class="last-posted" id="lastPosted">Last posted: Loading...</span>
-					</a>
-				</div>
-				
-				<div class="blog-link-section">
-					<a href="Pages/blog.html" class="blog-link" aria-label="View Blog">
-						<span class="blog-title">Random Writing</span>
-						<span class="last-posted" id="lastBlogPosted">Last posted: Loading...</span>
-					</a>
-				</div>
-			</div>
+
 		</div>
 
 		<script src="js/typing.js"></script>
 		<script src="js/github-api.js"></script>
 		<script>
-			// Update the last posted dates
-			document.addEventListener('DOMContentLoaded', async () => {
-				// Update development blog last posted date
-				const lastPostedElement = document.getElementById('lastPosted');
-				if (lastPostedElement) {
-					try {
-						const lastPostedDate = await getLastPostedDate();
-						lastPostedElement.textContent = `Last posted: ${lastPostedDate}`;
-					} catch (error) {
-						lastPostedElement.textContent = 'Last posted: Recently';
-					}
+			// Navigation functions for most recent posts
+			async function navigateToMostRecentDevBlog() {
+				try {
+					const url = await getMostRecentIssueUrl();
+					window.location.href = url;
+				} catch (error) {
+					console.error('Error navigating to most recent dev blog:', error);
+					window.location.href = 'Pages/projects.html';
 				}
-				
-				// Update blog last posted date
-				const lastBlogPostedElement = document.getElementById('lastBlogPosted');
-				if (lastBlogPostedElement) {
-					try {
-						const lastBlogDate = await getLastBlogDate();
-						lastBlogPostedElement.textContent = `Last posted: ${lastBlogDate}`;
-					} catch (error) {
-						lastBlogPostedElement.textContent = 'Last posted: Recently';
-					}
+			}
+			
+			async function navigateToMostRecentBlog() {
+				try {
+					const url = await getMostRecentBlogUrl();
+					window.location.href = url;
+				} catch (error) {
+					console.error('Error navigating to most recent blog:', error);
+					window.location.href = 'Pages/blog.html';
 				}
-			});
+			}
 		</script>
+ 
 	</body>
 </html>

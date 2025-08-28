@@ -7,27 +7,35 @@ let prototypeIssues = [];
 let currentBlogIndex = 0;
 let blogIssues = [];
 
+
+
 async function fetchGitHubIssues() {
     try {
-        const response = await fetch(`${GITHUB_API_URL}/repos/${GITHUB_REPO}/issues`, {
+        const response = await fetch(`${GITHUB_API_URL}/repos/${GITHUB_REPO}/issues?state=all&sort=created&direction=desc&per_page=100`, {
             headers: {
                 'Accept': 'application/vnd.github.v3+json'
-            },
-            cache: 'no-store'
+            }
         });
 
+        if (response.status === 403) {
+            console.warn('GitHub API rate limit exceeded. Please wait an hour and try again.');
+            return [];
+        }
+
         if (!response.ok) {
-            const errorText = await response.text();
-            console.error('API Response:', errorText);
             throw new Error(`GitHub API error: ${response.status}`);
         }
 
-        return await response.json();
+        const data = await response.json();
+        return data;
+        
     } catch (error) {
         console.error('Error fetching GitHub issues:', error);
-        throw error;
+        return [];
     }
 }
+
+
 
 function filterPrototypeIssues(issues) {
     return issues.filter(issue => 
@@ -293,8 +301,23 @@ async function loadBlog() {
         console.log('Filtered blog issues:', blogIssues);
         
         if (blogIssues.length > 0) {
-            // Since there's only one blog post, always show the first one
-            updateBlogUI(blogIssues[0]);
+            // Check for post hash in URL
+            const hash = window.location.hash;
+            const postNumber = hash ? parseInt(hash.replace('#post-', '')) : null;
+            
+            if (postNumber) {
+                // Find the specific blog post
+                const blogPost = blogIssues.find(issue => issue.number === postNumber);
+                if (blogPost) {
+                    updateBlogUI(blogPost);
+                } else {
+                    // If specific post not found, show the most recent
+                    updateBlogUI(blogIssues[0]);
+                }
+            } else {
+                // Default to the most recent blog post
+                updateBlogUI(blogIssues[0]);
+            }
         } else {
             showBlogDefaultContent();
         }
@@ -319,10 +342,31 @@ async function getMostRecentIssueUrl() {
     }
 }
 
+// Function to get the most recent blog post URL
+async function getMostRecentBlogUrl() {
+    try {
+        const issues = await fetchGitHubIssues();
+        const blogIssues = filterBlogIssues(issues);
+        
+        if (blogIssues.length > 0) {
+            return `Pages/blog.html#post-${blogIssues[0].number}`;
+        }
+        return 'Pages/blog.html';
+    } catch (error) {
+        console.error('Error getting most recent blog URL:', error);
+        return 'Pages/blog.html';
+    }
+}
+
 // Function to get the last posted date
 async function getLastPostedDate() {
     try {
         const issues = await fetchGitHubIssues();
+        
+        if (!issues) {
+            return 'Recently'; // Rate limited or error
+        }
+        
         const prototypeIssues = filterPrototypeIssues(issues);
         
         if (prototypeIssues.length > 0) {
@@ -345,17 +389,22 @@ async function getLastPostedDate() {
 async function getLastBlogDate() {
     try {
         const issues = await fetchGitHubIssues();
-        const blogIssues = filterBlogIssues(issues);
         
-        if (blogIssues.length > 0) {
-            const lastBlog = blogIssues[0]; // Most recent blog
-            const date = new Date(lastBlog.created_at);
+        if (!issues) {
+            return 'Recently'; // Rate limited or error
+        }
+        
+        if (issues.length > 0) {
+            // Just use the most recent issue date for now, same as getLastPostedDate
+            const mostRecentIssue = issues[0];
+            const date = new Date(mostRecentIssue.created_at);
             return date.toLocaleDateString('en-US', { 
                 month: 'short', 
                 day: 'numeric',
                 year: 'numeric'
             });
         }
+        
         return 'Recently';
     } catch (error) {
         console.error('Error getting last blog date:', error);

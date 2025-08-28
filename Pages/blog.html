@@ -62,8 +62,7 @@
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
 					<a href="../Files/Griffin Arkilic Resume - 2025.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
 					<a href="prototypes.html" aria-label="View Prototypes">Prototypes</a>
-					<a href="projects.html" aria-label="View Development Blog">Dev</a>
-					<a href="blog.html" aria-label="View Blog">Blog</a>
+					<a href="#" onclick="navigateToMostRecentDevBlog(); return false;" aria-label="View Development Blog">Dev Blog</a>
 				</div>
 			</div>
 
@@ -81,6 +80,19 @@
 		<script src="../js/github-api.js"></script>
 		<script src="../js/typing.js"></script>
 		<script>
+			// Navigation function for most recent dev blog post
+			async function navigateToMostRecentDevBlog() {
+				try {
+					const url = await getMostRecentIssueUrl();
+					// Adjust path for relative navigation from blog.html
+					const adjustedUrl = url.replace('Pages/', '');
+					window.location.href = adjustedUrl;
+				} catch (error) {
+					console.error('Error navigating to most recent dev blog:', error);
+					window.location.href = 'projects.html';
+				}
+			}
+			
 			// Initialize the blog page
 			document.addEventListener('DOMContentLoaded', loadBlog);
 		</script>

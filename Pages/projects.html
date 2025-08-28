@@ -52,8 +52,7 @@
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
 					<a href="../Files/Griffin Arkilic Resume - 2024.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
 					<a href="prototypes.html" aria-label="View Prototypes">Prototypes</a>
-					<a href="projects.html" aria-label="View Development Blog">Dev Blog</a>
-					<a href="blog.html" aria-label="View Blog">Blog</a>
+					<a href="#" onclick="navigateToMostRecentBlog(); return false;" aria-label="View Blog">Random Writing</a>
 				</div>
 			</div>
 
@@ -78,6 +77,19 @@
 		<script src="../js/github-api.js"></script>
 		<script src="../js/typing.js"></script>
 		<script>
+			// Navigation function for most recent blog post
+			async function navigateToMostRecentBlog() {
+				try {
+					const url = await getMostRecentBlogUrl();
+					// Adjust path for relative navigation from projects.html
+					const adjustedUrl = url.replace('Pages/', '');
+					window.location.href = adjustedUrl;
+				} catch (error) {
+					console.error('Error navigating to most recent blog:', error);
+					window.location.href = 'blog.html';
+				}
+			}
+			
 			// Initialize the prototype page
 			document.addEventListener('DOMContentLoaded', loadPrototype);
 		</script>
