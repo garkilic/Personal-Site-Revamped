@@ -37,6 +37,7 @@
     max-width: 100%;
     vertical-align: middle;
     line-height: 1;
+    margin-bottom: 0.25rem;
 }
 
 /* Mobile-specific styles */
@@ -60,6 +61,7 @@
         word-break: break-word;
         display: inline;
         line-height: 1.4;
+        margin-bottom: 0.2rem;
     }
 }
 
@@ -70,5 +72,9 @@
     
     #cursor {
         font-size: 0.85rem;
+    }
+    
+    .hero-section span {
+        margin-bottom: 0.15rem;
     }
 } 
