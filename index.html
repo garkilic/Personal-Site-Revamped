@@ -63,7 +63,7 @@
 					<a href="Files/Griffin Arkilic Resume - 2025.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
 					<a href="Pages/prototypes.html" aria-label="View Prototypes">Prototypes</a>
 					<a href="#" onclick="navigateToMostRecentDevBlog(); return false;" aria-label="View Development Blog">Dev Blog</a>
-					<a href="#" onclick="navigateToMostRecentBlog(); return false;" aria-label="View Blog">Blog</a>
+					<a href="https://punk-ventures.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Punk Ventures">Punk Ventures</a>
 				</div>
 			</div>
 
@@ -84,15 +84,6 @@
 				}
 			}
 			
-			async function navigateToMostRecentBlog() {
-				try {
-					const url = await getMostRecentBlogUrl();
-					window.location.href = url;
-				} catch (error) {
-					console.error('Error navigating to most recent blog:', error);
-					window.location.href = 'Pages/blog.html';
-				}
-			}
 		</script>
  
 	</body>
