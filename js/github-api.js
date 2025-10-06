@@ -159,21 +159,18 @@ function updatePrototypeUI(issue) {
 }
 
 function updateBlogUI(issue) {
-    const blogTitle = document.getElementById('blogTitle');
     const blogContent = document.getElementById('blogContent');
     
-    // Check if elements exist before proceeding
-    if (!blogTitle || !blogContent) {
-        console.error('Required blog elements not found');
+    // Check if element exists before proceeding
+    if (!blogContent) {
+        console.error('Required blog content element not found');
         return;
     }
     
     // Add fade-in animation class
-    blogTitle.classList.add('fade-in');
     blogContent.classList.add('fade-in');
     
     // Update content
-    blogTitle.textContent = issue.title;
     blogContent.innerHTML = marked.parse(issue.body);
 }
 
