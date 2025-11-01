@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+.active-prototypes {
+    grid-template-columns: 1fr;
+}
+
 .prototype-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
