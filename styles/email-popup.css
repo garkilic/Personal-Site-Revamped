@@ -1,0 +1,141 @@
+/* Email Popup Styles */
+#email-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+#email-popup-content {
+    position: relative;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease-out;
+}
+
+#email-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1;
+}
+
+#email-popup-close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#email-popup-close:active {
+    transform: scale(0.95);
+}
+
+#email-popup-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: #00ff00;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+}
+
+#email-popup-embed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 315px;
+}
+
+#email-popup-embed iframe {
+    border: none;
+    border-radius: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #email-popup-content {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+    
+    #email-popup-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    #email-popup-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 1.3rem;
+    }
+    
+    #email-popup-embed {
+        min-height: 280px;
+    }
+    
+    #email-popup-embed iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #email-popup-content {
+        padding: 1rem;
+    }
+    
+    #email-popup-title {
+        font-size: 1rem;
+        padding-right: 2rem;
+    }
+    
+    #email-popup-embed {
+        min-height: 250px;
+    }
+}
+

@@ -12,6 +12,10 @@
     grid-template-columns: 1fr;
 }
 
+.deprecated-section .prototypes-grid {
+    grid-template-columns: 1fr;
+}
+
 .prototype-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
@@ -52,15 +56,17 @@
 }
 
 .deprecated-tag {
-    display: inline-block;
+    display: block;
     background: rgba(255, 165, 0, 0.2);
     color: #ffa500;
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
     border-radius: 3px;
-    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: normal;
     border: 1px solid rgba(255, 165, 0, 0.3);
+    width: fit-content;
 }
 
 .deprecated-section {

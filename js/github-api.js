@@ -76,11 +76,10 @@ function updatePrototypeUI(issue) {
     
     // Update content
     prototypeTitle.textContent = issue.title;
-    prototypeMonth.textContent = getMonthLabel(issue);
+    prototypeMonth.textContent = '';
     
-    // Create status with link if available
-    const statusText = `Status: ${issue.state}`;
-    // Use Solution Threads URL for newest prototype, GitHub repos for deprecated ones, GitHub URL for others
+    // Create link without status text
+    // Use Solution Threads URL for newest product, GitHub repos for deprecated ones, GitHub URL for others
     let prototypeLink;
     if (issue.number === prototypeIssues[0].number) {
         prototypeLink = 'https://www.solutionthreads.com';
@@ -91,7 +90,7 @@ function updatePrototypeUI(issue) {
     } else {
         prototypeLink = issue.html_url;
     }
-    prototypeStatus.innerHTML = `${statusText} <a href="${prototypeLink}" target="_blank" rel="noopener noreferrer" class="prototype-link">View Prototype</a>`;
+    prototypeStatus.innerHTML = `<a href="${prototypeLink}" target="_blank" rel="noopener noreferrer" class="prototype-link">View Product</a>`;
     
     prototypeContent.innerHTML = marked.parse(issue.body);
 
@@ -103,7 +102,7 @@ function updatePrototypeUI(issue) {
         reversedIssues.forEach((prototypeIssue, index) => {
             const toggleLink = document.createElement('a');
             toggleLink.href = `#issue-${prototypeIssue.number}`;
-            toggleLink.innerHTML = `Prototype <span class="prototype-number">${index + 1}</span>`;
+            toggleLink.innerHTML = `Product <span class="prototype-number">${index + 1}</span>`;
             // Calculate the correct index for the active state
             const originalIndex = prototypeIssues.length - 1 - index;
             toggleLink.className = `issue-toggle ${originalIndex === currentIssueIndex ? 'active' : ''}`;
@@ -157,10 +156,10 @@ function showDefaultContent() {
     prototypeContent.innerHTML = `
         <div class="default-content fade-in">
             <h2>About Development Blog</h2>
-            <p>Welcome to my Development Blog, where I build and explore experimental prototypes. Each prototype explores different aspects of development and emerging technologies.</p>
+            <p>Welcome to my Development Blog, where I build and explore experimental products. Each product explores different aspects of development and emerging technologies.</p>
             
             <h2>Current Progress</h2>
-            <p>Prototype content will be updated here as each project progresses. Content includes:</p>
+            <p>Product content will be updated here as each project progresses. Content includes:</p>
             <ul>
                 <li>Project overview and concept</li>
                 <li>Technical implementation details</li>
@@ -179,7 +178,7 @@ function showError(error) {
     
     prototypeContent.innerHTML = `
         <div class="error-content fade-in">
-            <p>Error loading prototype content. Please try again later.</p>
+            <p>Error loading product content. Please try again later.</p>
             <p class="error-details">${error.message}</p>
             <p>Please check the browser console for more details.</p>
         </div>
@@ -206,7 +205,7 @@ async function loadPrototype() {
                     currentIssueIndex = issueIndex;
                 }
             } else {
-                // Default to the newest prototype (index 0 since toggles are newest to oldest)
+                // Default to the newest product (index 0 since toggles are newest to oldest)
                 currentIssueIndex = 0;
             }
             
