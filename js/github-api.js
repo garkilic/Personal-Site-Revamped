@@ -79,10 +79,10 @@ function updatePrototypeUI(issue) {
     prototypeMonth.textContent = '';
     
     // Create link without status text
-    // Use Solution Threads URL for newest product, GitHub repos for deprecated ones, GitHub URL for others
+    // Use Spend Later URL for newest product, GitHub repos for deprecated ones, GitHub URL for others
     let prototypeLink;
     if (issue.number === prototypeIssues[0].number) {
-        prototypeLink = 'https://www.solutionthreads.com';
+        prototypeLink = 'https://apps.apple.com/us/app/spend-later/id6753609229';
     } else if (issue.number === prototypeIssues[1].number) {
         prototypeLink = 'https://github.com/garkilic/super-tech-scout';
     } else if (issue.number === prototypeIssues[2].number) {
