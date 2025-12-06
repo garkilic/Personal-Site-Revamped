@@ -47,7 +47,8 @@
 				<h1>Development Blog</h1>
 				<h2>Building & Exploring</h2>
 				<span id="typing"></span><span id="cursor">|</span>
-				<div class="nav--bar">
+				<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+				<div class="nav--bar" id="navBar">
 					<a href="../index.html" aria-label="Return to Home">Home</a>
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
 					<a href="../Files/Griffin Arkilic Resume.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
@@ -78,9 +79,33 @@
 		<script src="../js/github-api.js"></script>
 		<script src="../js/typing.js"></script>
 		<script>
-			
 			// Initialize the prototype page
 			document.addEventListener('DOMContentLoaded', loadPrototype);
+
+			// Mobile menu toggle
+			document.addEventListener('DOMContentLoaded', function() {
+				const navToggle = document.getElementById('navToggle');
+				const navBar = document.getElementById('navBar');
+				
+				if (navToggle && navBar) {
+					navToggle.addEventListener('click', function() {
+						navBar.classList.toggle('active');
+						navToggle.classList.toggle('active');
+						const isExpanded = navBar.classList.contains('active');
+						navToggle.setAttribute('aria-expanded', isExpanded);
+					});
+
+					// Close menu when clicking on a link
+					const navLinks = navBar.querySelectorAll('a');
+					navLinks.forEach(link => {
+						link.addEventListener('click', function() {
+							navBar.classList.remove('active');
+							navToggle.classList.remove('active');
+							navToggle.setAttribute('aria-expanded', 'false');
+						});
+					});
+				}
+			});
 		</script>
 
 		<!-- Vercel Web Analytics -->

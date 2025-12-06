@@ -81,6 +81,39 @@
     margin-bottom: 1.5rem;
     text-align: center;
     font-weight: normal;
+    margin: 0;
+}
+
+.section-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.section-toggle:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.section-toggle .toggle-icon {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.section-toggle.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.deprecated-grid {
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
 }
 
 .active-project {
@@ -135,10 +168,28 @@
         margin-top: 2rem;
         padding-top: 1.5rem;
     }
+
+    .section-toggle {
+        display: flex;
+    }
+
+    .deprecated-grid {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin: 0;
+        padding: 0 1rem;
+    }
+
+    .deprecated-grid.active {
+        max-height: 2000px;
+        opacity: 1;
+        margin: 1rem 0;
+        padding: 1rem;
+    }
     
     .section-title {
         font-size: 1.1rem;
-        margin-bottom: 1.2rem;
     }
     
     .live-tag, .deprecated-tag {
@@ -169,6 +220,10 @@
     .prototype-card .prototype-link {
         font-size: 0.85rem;
         padding: 0.6rem 1rem;
+    }
+
+    .deprecated-grid.active {
+        padding: 0.8rem;
     }
     
     .section-title {
