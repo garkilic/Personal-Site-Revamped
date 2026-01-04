@@ -38,7 +38,6 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="../styles/main.css" />
-		<link rel="stylesheet" href="../styles/blog.css" />
 		<link rel="stylesheet" href="../styles/typing.css" />
 
 		<!-- Google Analytics -->
@@ -63,7 +62,6 @@
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
 					<a href="../Files/Griffin Arkilic Resume.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
 					<a href="prototypes.html" aria-label="View Products">Products</a>
-					<a href="#" onclick="navigateToMostRecentDevBlog(); return false;" aria-label="View Development Blog">Dev Blog</a>
 					<a href="https://punk-ventures.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Punk Ventures">Punk Ventures</a>
 				</div>
 			</div>
@@ -178,21 +176,7 @@
 		</div>
 
 		<script src="../js/typing.js"></script>
-		<script src="../js/github-api.js"></script>
 		<script>
-			// Navigation functions for most recent posts
-			async function navigateToMostRecentDevBlog() {
-				try {
-					const url = await getMostRecentIssueUrl();
-					// Adjust path for relative navigation from pdoom.html
-					const adjustedUrl = url.replace('Pages/', '');
-					window.location.href = adjustedUrl;
-				} catch (error) {
-					console.error('Error navigating to most recent dev blog:', error);
-					window.location.href = 'projects.html';
-				}
-			}
-
 			// Mobile menu toggle
 			document.addEventListener('DOMContentLoaded', function() {
 				const navToggle = document.getElementById('navToggle');
