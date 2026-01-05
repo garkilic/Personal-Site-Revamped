@@ -2,34 +2,34 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Griffin Arkilic</title>
-		<link rel="icon" href="Img/Skull.jpeg" />
+		<title>Development Blog | Griffin Arkilic</title>
+		<link rel="icon" href="../Img/Skull.jpeg" />
 
 		<!-- Primary Meta Tags -->
-		<meta name="title" content="Griffin Arkilic">
-		<meta name="description" content="AI developer in Los Angeles building products and exploring new tech." />
-		<meta name="keywords" content="AI Developer, Los Angeles, Products, Tech" />
+		<meta name="title" content="Development Blog | Griffin Arkilic">
+		<meta name="description" content="My development blog - building products and exploring new tech." />
+		<meta name="keywords" content="Development Blog, Products, Tech, Griffin Arkilic" />
 		<meta name="author" content="Griffin Arkilic" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
-		<meta property="og:title" content="Griffin Arkilic" />
-		<meta property="og:description" content="AI developer in Los Angeles building products and exploring new tech." />
-		<meta property="og:image" content="Img/Skull.jpeg" />
+		<meta property="og:url" content="https://garkilic.github.io/Personal-Site-Revamped/Pages/projects.html" />
+		<meta property="og:title" content="Development Blog | Griffin Arkilic" />
+		<meta property="og:description" content="My development blog - building products and exploring new tech." />
+		<meta property="og:image" content="../Img/Skull.jpeg" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
-		<meta property="twitter:title" content="Griffin Arkilic" />
-		<meta property="twitter:description" content="AI developer in Los Angeles building products and exploring new tech." />
-		<meta property="twitter:image" content="Img/Skull.jpeg" />
+		<meta property="twitter:url" content="https://garkilic.github.io/Personal-Site-Revamped/Pages/projects.html" />
+		<meta property="twitter:title" content="Development Blog | Griffin Arkilic" />
+		<meta property="twitter:description" content="My development blog - building products and exploring new tech." />
+		<meta property="twitter:image" content="../Img/Skull.jpeg" />
 
 		<!-- Additional Meta Tags -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="theme-color" content="#000000" />
 		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href="https://garkilic.github.io/Personal-Site-Revamped/" />
+		<link rel="canonical" href="https://garkilic.github.io/Personal-Site-Revamped/Pages/projects.html" />
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,53 +37,50 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/typing.css" />
-
-		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZYSRV6SWC"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag("js", new Date());
-			gtag("config", "G-1ZYSRV6SWC");
-		</script>
+		<link rel="stylesheet" href="../styles/main.css" />
+		<link rel="stylesheet" href="../styles/typing.css" />
 	</head>
 	<body>
 		<div class="main--section">
 			<div class="hero-section">
-				<img class="Skull" src="Img/Skull.jpeg" alt="Griffin Arkilic Profile" />
-				<h1>Griffin Arkilic</h1>
-				<h2>Based in Los Angeles, CA</h2>
+				<img class="Skull" src="../Img/Skull.jpeg" alt="Griffin Arkilic Profile" />
+				<h1>Development Blog</h1>
+				<h2>Building & Exploring</h2>
 				<span id="typing"></span><span id="cursor">|</span>
-				<p class="pdoom"><a href="Pages/pdoom.html" aria-label="Learn about Pdoom and AGI">Current P(doom):0.1%</a></p>
 				<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
 				<div class="nav--bar" id="navBar">
-					<a href="index.html" aria-label="Home">Home</a>
+					<a href="../index.html" aria-label="Return to Home">Home</a>
 					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
-					<a href="Files/Griffin Arkilic Resume.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
-					<a href="Pages/prototypes.html" aria-label="View Products">Products</a>
+					<a href="../Files/Griffin Arkilic Resume.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
+					<a href="prototypes.html" aria-label="View Products">Products</a>
 					<a href="#" onclick="navigateToMostRecentDevBlog(); return false;" aria-label="View Development Blog">Dev Blog</a>
 					<a href="https://punk-ventures.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Punk Ventures">Punk Ventures</a>
 				</div>
 			</div>
 
+			<div class="issue-toggles" id="issueToggles"></div>
 
+			<div class="prototype-container">
+				<div class="prototype-header">
+					<h1 id="prototypeTitle"></h1>
+					<div class="prototype-meta">
+						<span id="prototypeMonth"></span>
+						<span id="prototypeStatus"></span>
+					</div>
+				</div>
+				<div class="prototype-content" id="prototypeContent"></div>
+				<div class="prototype-navigation" id="navigationLinks"></div>
+			</div>
 		</div>
 
-		<script src="js/typing.js"></script>
-		<script src="js/github-api.js"></script>
+		<!-- Load marked.js for Markdown parsing -->
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<!-- Load our GitHub API functionality -->
+		<script src="../js/github-api.js"></script>
+		<script src="../js/typing.js"></script>
 		<script>
-			// Navigation functions for most recent posts
-			async function navigateToMostRecentDevBlog() {
-				try {
-					const url = await getMostRecentIssueUrl();
-					window.location.href = url;
-				} catch (error) {
-					console.error('Error navigating to most recent dev blog:', error);
-					window.location.href = 'Pages/projects.html';
-				}
-			}
+			// Initialize the prototype page
+			document.addEventListener('DOMContentLoaded', loadPrototype);
 
 			// Mobile menu toggle
 			document.addEventListener('DOMContentLoaded', function() {
@@ -121,6 +118,5 @@
 			document.body.appendChild(script);
 		}
 	</script>
- 
 	</body>
-</html>
+</html> 
