@@ -79,15 +79,25 @@ function updatePrototypeUI(issue) {
     prototypeMonth.textContent = '';
     
     // Create link without status text
-    // Use Spend Later URL for newest product, GitHub repos for deprecated ones, GitHub URL for others
+    // Calculate product number: array is sorted newest first, but products are numbered oldest to newest
+    // Product 1 = oldest (last in array), Product 2 = second oldest, etc.
+    const productNumber = prototypeIssues.length - currentIssueIndex;
     let prototypeLink;
-    if (issue.number === prototypeIssues[0].number) {
-        prototypeLink = 'https://apps.apple.com/us/app/spend-later/id6753609229';
-    } else if (issue.number === prototypeIssues[1].number) {
+    
+    if (productNumber === 1) {
+        // Product 1: Super Tech Scout
         prototypeLink = 'https://github.com/garkilic/super-tech-scout';
-    } else if (issue.number === prototypeIssues[2].number) {
+    } else if (productNumber === 2) {
+        // Product 2: KookCast
         prototypeLink = 'https://github.com/garkilic/kookcast';
+    } else if (productNumber === 3) {
+        // Product 3: Solution Threads
+        prototypeLink = 'https://www.solutionthreads.com';
+    } else if (productNumber === 4) {
+        // Product 4: Spend Later
+        prototypeLink = 'https://apps.apple.com/us/app/spend-later/id6753609229';
     } else {
+        // Default to GitHub issue URL for any other products
         prototypeLink = issue.html_url;
     }
     prototypeStatus.innerHTML = `<a href="${prototypeLink}" target="_blank" rel="noopener noreferrer" class="prototype-link">View Product</a>`;
