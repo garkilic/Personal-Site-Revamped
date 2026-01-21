@@ -5,11 +5,13 @@
     display: inline-block;
     font-family: 'Roboto Mono', monospace;
     white-space: nowrap;
-    line-height: 1;
-    overflow: hidden;
+    line-height: 1.5;
+    overflow: visible;
     text-overflow: ellipsis;
     max-width: 100%;
     vertical-align: middle;
+    min-height: 1.5em;
+    padding-bottom: 0.2em;
 }
 
 #cursor {
@@ -19,8 +21,9 @@
     display: inline-block;
     font-size: 1rem;
     vertical-align: middle;
-    line-height: 1;
+    line-height: 1.5;
     margin-left: 2px;
+    min-height: 1.5em;
 }
 
 @keyframes blink {
@@ -32,12 +35,13 @@
 .hero-section span {
     display: inline-block;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: visible;
     text-overflow: ellipsis;
     max-width: 100%;
     vertical-align: middle;
-    line-height: 1;
-    margin-bottom: 0.25rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    min-height: 1.5em;
 }
 
 /* Mobile-specific styles */
@@ -47,34 +51,41 @@
         word-break: break-word;
         display: inline;
         font-size: 0.9rem;
-        line-height: 1.4;
+        line-height: 1.5;
+        padding-bottom: 0.2em;
     }
 
     #cursor {
         display: inline;
         font-size: 0.9rem;
         margin-left: 1px;
+        line-height: 1.5;
     }
 
     .hero-section span {
         white-space: normal;
         word-break: break-word;
         display: inline;
-        line-height: 1.4;
-        margin-bottom: 0.2rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+        min-height: 1.5em;
     }
 }
 
 @media (max-width: 480px) {
     #typing {
         font-size: 0.85rem;
+        line-height: 1.5;
+        padding-bottom: 0.2em;
     }
     
     #cursor {
         font-size: 0.85rem;
+        line-height: 1.5;
     }
     
     .hero-section span {
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
     }
 } 

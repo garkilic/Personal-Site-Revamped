@@ -70,19 +70,29 @@
 
 		<div class="prototypes-grid active-prototypes">
 			<div class="prototype-card active-project">
-				<h3>Product 5: Locls Club <span class="live-tag">Live</span></h3>
-				<p>A surf reporting service where local surfers text daily conditions via SMS, and subscribers receive AI-generated summaries each morning telling them where to surf for $40/year. Solves the problem of beginners wasting time driving to blown-out spots or missing good sessions.</p>
-				<a href="https://locls.club" target="_blank" rel="noopener noreferrer" class="prototype-link">View Project</a>
+				<h3>Solution Threads 2.0 <span class="live-tag">Live</span></h3>
+				<p>An AI chief of staff on your laptop that actually interacts with your data and does stuff you actually care about, as opposed to general agents.</p>
+				<a href="https://www.solutionthreads.com" target="_blank" rel="noopener noreferrer" class="prototype-link">View Project</a>
 			</div>
 			<div class="prototype-card active-project">
-				<h3>Product 4: Spend Later <span class="live-tag">Live</span></h3>
+				<h3>Spend Later <span class="live-tag">Live</span></h3>
 				<p>AI implementation platform that creates clear, ready-to-use workflows for small businesses. Transforms complex AI processes into simple, actionable steps that teams can execute immediately.</p>
 				<a href="https://apps.apple.com/us/app/spend-later/id6753609229" target="_blank" rel="noopener noreferrer" class="prototype-link">View Project</a>
 			</div>
-			<div class="prototype-card active-project">
-				<h3>Product 3: Solution Threads <span class="live-tag">Live</span></h3>
-				<p>AI implementation platform that creates clear, ready-to-use workflows for small businesses. Transforms complex AI processes into simple, actionable steps that teams can execute immediately.</p>
-				<a href="https://www.solutionthreads.com" target="_blank" rel="noopener noreferrer" class="prototype-link">View Project</a>
+		</div>
+
+		<div class="paused-section">
+			<button class="section-toggle" id="pausedToggle" aria-label="Toggle paused projects" aria-expanded="false">
+				<h3 class="section-title">Paused Projects</h3>
+				<span class="toggle-icon">▼</span>
+			</button>
+				<div class="prototypes-grid paused-grid" id="pausedGrid">
+				<div class="prototype-card paused-project">
+					<h3>Locls Club <span class="paused-tag">Paused</span></h3>
+					<p>A surf reporting service where local surfers text daily conditions via SMS, and subscribers receive AI-generated summaries each morning telling them where to surf for $40/year. Solves the problem of beginners wasting time driving to blown-out spots or missing good sessions.</p>
+					<p class="paused-note"><em>Note: Paused to explore new technologies.</em></p>
+					<a href="https://locls.club" target="_blank" rel="noopener noreferrer" class="prototype-link">View Project</a>
+				</div>
 			</div>
 		</div>
 			
@@ -93,13 +103,19 @@
 				</button>
 				<div class="prototypes-grid deprecated-grid" id="deprecatedGrid">
 					<div class="prototype-card">
-						<h3>Product 2: KookCast</h3>
+						<h3>Solution Threads 1.0</h3>
+						<span class="deprecated-tag">Deprecated</span>
+						<p>AI implementation platform that creates clear, ready-to-use workflows for small businesses. Transforms complex AI processes into simple, actionable steps that teams can execute immediately.</p>
+						<a href="https://github.com/garkilic/smb-ai-solutions" target="_blank" rel="noopener noreferrer" class="prototype-link">View Repository</a>
+					</div>
+					<div class="prototype-card">
+						<h3>KookCast</h3>
 						<span class="deprecated-tag">Deprecated</span>
 						<p>A surf forecasting platform that delivers clear, simple surf reports. Powered by AI for personalized recommendations based on your style and skill level.</p>
 						<a href="https://github.com/garkilic/kookcast" target="_blank" rel="noopener noreferrer" class="prototype-link">View Repository</a>
 					</div>
 					<div class="prototype-card">
-						<h3>Product 1: Super Tech Scout</h3>
+						<h3>Super Tech Scout</h3>
 						<span class="deprecated-tag">Deprecated</span>
 						<p>An AI-powered platform for scouting and analyzing emerging technologies. Uses advanced AI models to identify, analyze, and predict technology trends and opportunities.</p>
 						<a href="https://github.com/garkilic/super-tech-scout" target="_blank" rel="noopener noreferrer" class="prototype-link">View Repository</a>
@@ -158,6 +174,19 @@
 						deprecatedToggle.classList.toggle('active');
 						const isExpanded = deprecatedGrid.classList.contains('active');
 						deprecatedToggle.setAttribute('aria-expanded', isExpanded);
+					});
+				}
+
+				// Paused section toggle for mobile
+				const pausedToggle = document.getElementById('pausedToggle');
+				const pausedGrid = document.getElementById('pausedGrid');
+				
+				if (pausedToggle && pausedGrid) {
+					pausedToggle.addEventListener('click', function() {
+						pausedGrid.classList.toggle('active');
+						pausedToggle.classList.toggle('active');
+						const isExpanded = pausedGrid.classList.contains('active');
+						pausedToggle.setAttribute('aria-expanded', isExpanded);
 					});
 				}
 			});
