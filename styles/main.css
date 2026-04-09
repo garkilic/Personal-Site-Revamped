@@ -78,37 +78,6 @@ body {
     border-bottom-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Job Tracker CTA Button */
-.job-tracker-cta {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.9rem 1.5rem;
-    background: rgba(100, 200, 255, 0.06);
-    border: 1px solid rgba(100, 200, 255, 0.35);
-    border-radius: 5px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.job-tracker-cta:hover {
-    background: rgba(100, 200, 255, 0.12);
-    border-color: rgba(100, 200, 255, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(100, 200, 255, 0.1);
-}
-
-.job-tracker-cta .built-by-me {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    font-weight: 400;
-}
-
-.job-tracker-cta .underline-text {
-    text-decoration: underline;
-}
 
 .error-content {
     padding: 2rem;
@@ -250,15 +219,6 @@ body {
     
     .error-details {
         font-size: 0.8rem;
-    }
-
-    .job-tracker-cta {
-        width: 90%;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 0.9rem;
-        padding: 0.8rem 1rem;
     }
 
 }

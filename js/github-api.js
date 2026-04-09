@@ -46,19 +46,6 @@ function filterPrototypeIssues(issues) {
 }
 
 
-function getMonthLabel(issue) {
-    const monthLabel = issue.labels.find(label => label.name.startsWith('month-'));
-    if (!monthLabel) return 'Month 1';
-    
-    const monthNumber = monthLabel.name.replace('month-', '');
-    // Add "-" to Month 2 to indicate it's ongoing
-    if (monthNumber === '2') {
-        return 'Month 2 -';
-    }
-    return `Month ${monthNumber}`;
-}
-
-
 
 function updatePrototypeUI(issue) {
     const prototypeTitle = document.getElementById('prototypeTitle');
@@ -78,28 +65,18 @@ function updatePrototypeUI(issue) {
     prototypeTitle.textContent = issue.title;
     prototypeMonth.textContent = '';
     
-    // Create link without status text
     // Calculate product number: array is sorted newest first, but products are numbered oldest to newest
     // Product 1 = oldest (last in array), Product 2 = second oldest, etc.
     const productNumber = prototypeIssues.length - currentIssueIndex;
-    let prototypeLink;
-    
-    if (productNumber === 1) {
-        // Product 1: Super Tech Scout
-        prototypeLink = 'https://github.com/garkilic/super-tech-scout';
-    } else if (productNumber === 2) {
-        // Product 2: KookCast
-        prototypeLink = 'https://github.com/garkilic/kookcast';
-    } else if (productNumber === 3) {
-        // Product 3: Solution Threads
-        prototypeLink = 'https://www.solutionthreads.com';
-    } else if (productNumber === 4) {
-        // Product 4: Spend Later
-        prototypeLink = 'https://apps.apple.com/us/app/spend-later/id6753609229';
-    } else {
-        // Default to GitHub issue URL for any other products
-        prototypeLink = issue.html_url;
-    }
+    const productLinks = {
+        1: 'https://github.com/garkilic/super-tech-scout',
+        2: 'https://github.com/garkilic/kookcast',
+        3: 'https://www.solutionthreads.com',
+        4: 'https://apps.apple.com/us/app/spend-later/id6753609229',
+        5: 'https://locls.club',
+        6: 'https://job-search-inky.vercel.app/',
+    };
+    const prototypeLink = productLinks[productNumber] || issue.html_url;
     prototypeStatus.innerHTML = `<a href="${prototypeLink}" target="_blank" rel="noopener noreferrer" class="prototype-link">View Product</a>`;
     
     prototypeContent.innerHTML = marked.parse(issue.body);
@@ -246,29 +223,3 @@ async function getMostRecentIssueUrl() {
 }
 
 
-// Function to get the last posted date
-async function getLastPostedDate() {
-    try {
-        const issues = await fetchGitHubIssues();
-        
-        if (!issues) {
-            return 'Recently'; // Rate limited or error
-        }
-        
-        const prototypeIssues = filterPrototypeIssues(issues);
-        
-        if (prototypeIssues.length > 0) {
-            const lastIssue = prototypeIssues[0]; // Most recent issue
-            const date = new Date(lastIssue.updated_at);
-            return date.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric',
-                year: 'numeric'
-            });
-        }
-        return 'Recently';
-    } catch (error) {
-        console.error('Error getting last posted date:', error);
-        return 'Recently';
-    }
-}

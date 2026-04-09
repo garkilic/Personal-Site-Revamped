@@ -12,7 +12,8 @@
     grid-template-columns: 1fr;
 }
 
-.deprecated-section .prototypes-grid {
+.deprecated-section .prototypes-grid,
+.paused-section .prototypes-grid {
     grid-template-columns: 1fr;
 }
 
