@@ -78,6 +78,30 @@ body {
     border-bottom-color: rgba(255, 255, 255, 0.3);
 }
 
+.live-status {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.live-status p {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    color: rgba(0, 255, 100, 0.7);
+    margin: 0;
+    min-height: 1.2em;
+}
+
+.live-status p a {
+    color: rgba(0, 255, 100, 0.7);
+    text-decoration: underline;
+}
+
+.live-status p a:hover {
+    color: rgba(0, 255, 100, 1);
+}
+
 
 .error-content {
     padding: 2rem;

@@ -66,6 +66,10 @@
 					<a href="#" onclick="navigateToMostRecentDevBlog(); return false;" aria-label="View Development Blog">Dev Blog</a>
 					<a href="https://punk-ventures.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Punk Ventures">Punk Ventures</a>
 				</div>
+				<div class="live-status">
+					<p id="currentlyBuilding"></p>
+					<p id="lastPush"></p>
+				</div>
 			</div>
 
 
@@ -84,6 +88,21 @@
 					window.location.href = 'Pages/projects.html';
 				}
 			}
+
+			// Live status
+			const buildingEl = document.getElementById('currentlyBuilding');
+			buildingEl.appendChild(document.createTextNode('> currently building: '));
+			const stLink = document.createElement('a');
+			stLink.href = 'https://www.solutionthreads.com';
+			stLink.target = '_blank';
+			stLink.rel = 'noopener noreferrer';
+			stLink.textContent = 'Solution Threads';
+			buildingEl.appendChild(stLink);
+			buildingEl.appendChild(document.createTextNode(' and VibeTracked'));
+			getLastCommitDate().then(date => {
+				const el = document.getElementById('lastPush');
+				if (el && date) el.textContent = '> last push: ' + date;
+			});
 
 			// Mobile menu toggle
 			document.addEventListener('DOMContentLoaded', function() {

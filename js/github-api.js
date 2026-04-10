@@ -206,6 +206,24 @@ async function loadPrototype() {
 }
 
 
+// Function to get the last push date across all repos
+async function getLastCommitDate() {
+    try {
+        const response = await fetch(`${GITHUB_API_URL}/users/garkilic/events?per_page=30`, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (!response.ok) return null;
+        const data = await response.json();
+        const pushEvent = data.find(e => e.type === 'PushEvent');
+        if (!pushEvent) return null;
+        const date = new Date(pushEvent.created_at);
+        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    } catch (error) {
+        return null;
+    }
+}
+
+
 // Function to get the most recent issue URL
 async function getMostRecentIssueUrl() {
     try {
