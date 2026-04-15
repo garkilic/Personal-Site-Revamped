@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup — griffin arkilic</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f9fafb;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: sans-serif;
+  }
+  .browser-frame {
+    width: 620px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .browser-chrome {
+    background: #f3f4f6;
+    padding: 10px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-red { background: #ef4444; }
+  .dot-yellow { background: #f59e0b; }
+  .dot-green { background: #22c55e; }
+  .url-bar {
+    flex: 1;
+    background: white;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #6b7280;
+    font-family: monospace;
+  }
+  .page {
+    background: #ffffff;
+    padding: 60px 52px 80px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #1d4ed8;
+    min-height: 500px;
+  }
+
+  /* Version A */
+  .ver-a .name { font-size: 18px; font-weight: bold; margin-bottom: 4px; }
+  .ver-a .bio { color: #6b7280; margin-bottom: 32px; font-size: 13px; }
+  .ver-a .project { margin-bottom: 10px; font-size: 13px; }
+  .ver-a .project a { color: #1d4ed8; text-decoration: none; }
+  .ver-a .project a:hover { text-decoration: underline; }
+  .ver-a .footer { margin-top: 40px; font-size: 12px; color: #6b7280; }
+  .ver-a .footer a { color: #3b82f6; text-decoration: none; margin-right: 16px; }
+
+  /* Version B */
+  .ver-b .name { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+  .ver-b .contact { font-size: 12px; color: #3b82f6; margin-bottom: 24px; }
+  .ver-b .bio { font-size: 13px; color: #374151; line-height: 1.7; margin-bottom: 36px; font-family: sans-serif; }
+  .ver-b .section-label { font-size: 10px; letter-spacing: 2px; color: #93c5fd; margin-bottom: 16px; border-top: 1px solid #bfdbfe; padding-top: 16px; }
+  .ver-b .project { margin-bottom: 20px; }
+  .ver-b .project-name { font-size: 14px; font-weight: bold; }
+  .ver-b .project-name a { color: #1d4ed8; text-decoration: none; }
+  .ver-b .project-desc { font-size: 11px; color: #6b7280; margin-top: 2px; font-family: sans-serif; }
+  .ver-b .footer { margin-top: 40px; border-top: 1px solid #bfdbfe; padding-top: 16px; font-size: 11px; color: #6b7280; font-family: sans-serif; }
+  .ver-b .footer a { color: #3b82f6; text-decoration: none; }
+
+  .label-a, .label-b {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 10px;
+    font-family: monospace;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div style="display:flex;flex-direction:column;gap:32px;width:100%;align-items:center;">
+
+  <!-- Option A -->
+  <div style="width:620px">
+    <div style="font-family:monospace;font-size:12px;color:#1d4ed8;margin-bottom:8px;text-align:center">— Option A: Bare text —</div>
+    <div class="browser-frame">
+      <div class="browser-chrome">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+        <div class="url-bar">griffinarkilic.com</div>
+      </div>
+      <div class="page ver-a">
+        <div class="name">griffin arkilic</div>
+        <div class="bio">indie dev & founder</div>
+        <div class="project">solution threads — ai workflows for ria practices <a href="#">↗</a></div>
+        <div class="project">spend later — ios deferred spending app <a href="#">↗</a></div>
+        <div class="footer">
+          <a href="#">github</a>
+          <a href="#">email</a>
+          <a href="#">resume</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div style="width:620px">
+    <div style="font-family:monospace;font-size:12px;color:#1d4ed8;margin-bottom:8px;text-align:center">— Option B: Structured with bio —</div>
+    <div class="browser-frame">
+      <div class="browser-chrome">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+        <div class="url-bar">griffinarkilic.com</div>
+      </div>
+      <div class="page ver-b">
+        <div class="name">griffin arkilic</div>
+        <div class="contact">garkilic@gmail.com</div>
+        <div class="bio">Building software at the intersection of AI and real-world workflows. Previously in fintech; now working on independent projects.</div>
+        <div class="section-label">WORK</div>
+        <div class="project">
+          <div class="project-name"><a href="#">Solution Threads ↗</a></div>
+          <div class="project-desc">AI workflows for RIA practices</div>
+        </div>
+        <div class="project">
+          <div class="project-name"><a href="#">Spend Later ↗</a></div>
+          <div class="project-desc">iOS app for deferred spending decisions</div>
+        </div>
+        <div class="footer">
+          other work on <a href="#">github</a> · <a href="#">resume</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

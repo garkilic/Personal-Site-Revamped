@@ -26,7 +26,7 @@ Simplify griffinarkilic.com to a single, fully static page. Remove all dynamic c
 2. **Tagline** — `building things`
 3. **Location** — `los angeles, ca`
 4. **Projects** (two lines):
-   - `solution threads — ai workflows for ria practices ↗` → https://www.solutionthreads.com
+   - `solution threads — custom ai workflows that let a team of 5 operate like a team of 50 ↗` → https://www.solutionthreads.com
    - `spend later — ios deferred spending app ↗` → https://apps.apple.com/us/app/spend-later/id6753609229
 5. **Footer links** — `github · email · resume`
    - github → https://github.com/garkilic
