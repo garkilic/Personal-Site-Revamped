@@ -1,269 +1,80 @@
-/* Import component styles */
-@import 'components/navigation.css';
-@import 'components/prototype.css';
-@import 'components/layout.css';
-@import 'components/current-prototype.css';
-
-/* Global styles */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-    font-family: 'Roboto Mono', monospace;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
-    line-height: 1.6;
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Mobile-first responsive design */
-* {
-    box-sizing: border-box;
-}
-
-/* Touch-friendly interactions */
-button, a, input, textarea {
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Prevent horizontal scroll on mobile */
-html {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-/* Improve text rendering on mobile */
 body {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-} 
-
-/* Fade-in Animation */
-.fade-in {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeIn 0.5s ease-out forwards;
+  background: #ffffff;
+  color: #1d4ed8;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 64px 32px 80px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.container {
+  max-width: 560px;
 }
 
-/* Pdoom link styles */
-.pdoom {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
-.pdoom a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid transparent;
+.tagline,
+.location {
+  color: #6b7280;
+  font-size: 13px;
 }
 
-.pdoom a:hover {
-    color: rgba(255, 255, 255, 0.9);
-    border-bottom-color: rgba(255, 255, 255, 0.3);
+.tagline {
+  margin-bottom: 2px;
 }
 
-.live-status {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+.location {
+  margin-bottom: 36px;
 }
 
-.live-status p {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.85rem;
-    color: rgba(0, 255, 100, 0.7);
-    margin: 0;
-    min-height: 1.2em;
+.projects {
+  margin-bottom: 48px;
 }
 
-.live-status p a {
-    color: rgba(0, 255, 100, 0.7);
-    text-decoration: underline;
+.project {
+  margin-bottom: 10px;
+  font-size: 13px;
 }
 
-.live-status p a:hover {
-    color: rgba(0, 255, 100, 1);
+.project a {
+  color: #1d4ed8;
+  text-decoration: none;
 }
 
-
-.error-content {
-    padding: 2rem;
-    background: rgba(255, 0, 0, 0.1);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 0, 0, 0.2);
+.project a:hover {
+  text-decoration: underline;
 }
 
-.error-details {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.9rem;
-    color: #ff6b6b;
-    margin: 1rem 0;
+.footer {
+  font-size: 12px;
+  color: #6b7280;
+  display: flex;
+  gap: 20px;
 }
 
-
-
-
-
-
-
-.prototype-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.footer a,
+.footer button {
+  color: #3b82f6;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
 }
 
-.prototype-navigation a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.8rem 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.05);
+.footer a:hover,
+.footer button:hover {
+  text-decoration: underline;
 }
-
-.prototype-navigation a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-}
-
-.issue-toggles {
-    display: flex;
-    justify-content: center;
-    gap: 0.55rem;
-    margin: 1.1rem 0 2.2rem;
-    flex-wrap: wrap;
-    max-width: 800px;
-    width: 100%;
-}
-
-.issue-toggle {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    font-size: 0.99rem;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.issue-toggle .prototype-number {
-    font-weight: bold;
-    color: #ff6b6b;
-    font-size: 1.1rem;
-}
-
-.issue-toggle:hover {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.3);
-    background-color: rgba(255, 255, 255, 0.05);
-    transform: translateY(-1px);
-}
-
-.issue-toggle.active {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Mobile-first responsive styles */
-@media (max-width: 768px) {
-
-    
-    body {
-        font-size: 14px;
-    }
-    
-    .issue-toggles {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-        margin: 1rem 0 2rem;
-        padding: 0 1rem;
-    }
-    
-    .issue-toggle {
-        width: 100%;
-        justify-content: center;
-        font-size: 0.9rem;
-        padding: 0.8rem 1rem;
-        border-radius: 5px;
-        min-height: 44px;
-    }
-    
-    .issue-toggle .prototype-number {
-        font-size: 1rem;
-    }
-    
-    .prototype-navigation {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.7rem;
-        padding: 0 1rem;
-    }
-    
-    .prototype-navigation a {
-        width: 100%;
-        text-align: center;
-        font-size: 0.9rem;
-        padding: 0.8rem 1rem;
-        min-height: 44px;
-        border-radius: 5px;
-    }
-    
-    .error-content {
-        margin: 1rem;
-        padding: 1rem;
-        font-size: 0.9rem;
-    }
-    
-    .error-details {
-        font-size: 0.8rem;
-    }
-
-}
-
-/* Small mobile devices */
-@media (max-width: 480px) {
-    body {
-        font-size: 13px;
-    }
-    
-    .issue-toggle {
-        font-size: 0.85rem;
-        padding: 0.7rem 0.9rem;
-        border-radius: 5px;
-    }
-    
-    .prototype-navigation a {
-        font-size: 0.85rem;
-        padding: 0.7rem 0.9rem;
-        border-radius: 5px;
-    }
-    
-
-} 
