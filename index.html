@@ -1,144 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Griffin Arkilic</title>
-		<link rel="icon" href="Img/Skull.jpeg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>griffin arkilic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="container">
 
-		<!-- Primary Meta Tags -->
-		<meta name="title" content="Griffin Arkilic">
-		<meta name="description" content="AI developer in Los Angeles building products and exploring new tech." />
-		<meta name="keywords" content="AI Developer, Los Angeles, Products, Tech" />
-		<meta name="author" content="Griffin Arkilic" />
+    <div class="name">griffin arkilic</div>
+    <div class="tagline">building things</div>
+    <div class="location">los angeles, ca</div>
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
-		<meta property="og:title" content="Griffin Arkilic" />
-		<meta property="og:description" content="AI developer in Los Angeles building products and exploring new tech." />
-		<meta property="og:image" content="Img/Skull.jpeg" />
+    <div class="projects">
+      <div class="project">
+        <a href="https://www.solutionthreads.com" target="_blank" rel="noopener">
+          solution threads ↗
+        </a>
+        — custom ai workflows that let a team of 5 operate like a team of 50
+      </div>
+      <div class="project">
+        <a href="https://apps.apple.com/us/app/spend-later/id6753609229" target="_blank" rel="noopener">
+          spend later ↗
+        </a>
+        — ios deferred spending app
+      </div>
+    </div>
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://garkilic.github.io/Personal-Site-Revamped/" />
-		<meta property="twitter:title" content="Griffin Arkilic" />
-		<meta property="twitter:description" content="AI developer in Los Angeles building products and exploring new tech." />
-		<meta property="twitter:image" content="Img/Skull.jpeg" />
+    <div class="footer">
+      <a href="https://github.com/garkilic" target="_blank" rel="noopener">github</a>
+      <button onclick="copyEmail()" id="email-btn">email</button>
+      <a href="/Files/Griffin Arkilic Resume.pdf" target="_blank">resume</a>
+    </div>
 
-		<!-- Additional Meta Tags -->
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#000000" />
-		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href="https://garkilic.github.io/Personal-Site-Revamped/" />
+  </div>
 
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-
-		<!-- Styles -->
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/typing.css" />
-
-		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZYSRV6SWC"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag("js", new Date());
-			gtag("config", "G-1ZYSRV6SWC");
-		</script>
-	</head>
-	<body>
-		<div class="main--section">
-			<div class="hero-section">
-				<img class="Skull" src="Img/Skull.jpeg" alt="Griffin Arkilic Profile" />
-				<h1>Griffin Arkilic</h1>
-				<h2>Based in Los Angeles, CA</h2>
-				<span id="typing"></span><span id="cursor">|</span>
-				<p class="pdoom"><a href="Pages/pdoom.html" aria-label="Learn about Pdoom and AGI">Current P(doom):0.1%</a></p>
-				<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
-				<div class="nav--bar" id="navBar">
-					<a href="index.html" aria-label="Home">Home</a>
-					<a href="mailto:garkilic@gmail.com" aria-label="Email Griffin">Email</a>
-					<a href="Files/Griffin Arkilic Resume.pdf" download="Griffin-Arkilic-Resume.pdf" aria-label="Download Resume">Resume</a>
-					<a href="#" onclick="navigateToMostRecentDevBlog(); return false;" aria-label="View Development Blog">Dev Blog</a>
-					<a href="https://punk-ventures.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Punk Ventures">Punk Ventures</a>
-				</div>
-				<div class="live-status">
-					<p id="currentlyBuilding"></p>
-					<p id="lastPush"></p>
-				</div>
-			</div>
-
-
-		</div>
-
-		<script src="js/typing.js"></script>
-		<script src="js/github-api.js"></script>
-		<script>
-			// Navigation functions for most recent posts
-			async function navigateToMostRecentDevBlog() {
-				try {
-					const url = await getMostRecentIssueUrl();
-					window.location.href = url;
-				} catch (error) {
-					console.error('Error navigating to most recent dev blog:', error);
-					window.location.href = 'Pages/projects.html';
-				}
-			}
-
-			// Live status
-			const buildingEl = document.getElementById('currentlyBuilding');
-			buildingEl.appendChild(document.createTextNode('> currently building: '));
-			const stLink = document.createElement('a');
-			stLink.href = 'https://www.solutionthreads.com';
-			stLink.target = '_blank';
-			stLink.rel = 'noopener noreferrer';
-			stLink.textContent = 'Solution Threads';
-			buildingEl.appendChild(stLink);
-			buildingEl.appendChild(document.createTextNode(' and VibeTracked'));
-			getLastCommitDate().then(date => {
-				const el = document.getElementById('lastPush');
-				if (el && date) el.textContent = '> last push: ' + date;
-			});
-
-			// Mobile menu toggle
-			document.addEventListener('DOMContentLoaded', function() {
-				const navToggle = document.getElementById('navToggle');
-				const navBar = document.getElementById('navBar');
-				
-				if (navToggle && navBar) {
-					navToggle.addEventListener('click', function() {
-						navBar.classList.toggle('active');
-						navToggle.classList.toggle('active');
-						const isExpanded = navBar.classList.contains('active');
-						navToggle.setAttribute('aria-expanded', isExpanded);
-					});
-
-					// Close menu when clicking on a link
-					const navLinks = navBar.querySelectorAll('a');
-					navLinks.forEach(link => {
-						link.addEventListener('click', function() {
-							navBar.classList.remove('active');
-							navToggle.classList.remove('active');
-							navToggle.setAttribute('aria-expanded', 'false');
-						});
-					});
-				}
-			});
-		</script>
-
-	<!-- Vercel Web Analytics (only loads in production) -->
-	<script>
-		if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-			window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-			const script = document.createElement('script');
-			script.defer = true;
-			script.src = '/_vercel/insights/script.js';
-			document.body.appendChild(script);
-		}
-	</script>
- 
-	</body>
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('garkilic@gmail.com');
+      const btn = document.getElementById('email-btn');
+      btn.textContent = 'copied!';
+      setTimeout(() => { btn.textContent = 'email'; }, 2000);
+    }
+  </script>
+</body>
 </html>
