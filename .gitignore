@@ -20,3 +20,5 @@ js/config.js
 Thumbs.db
 *.swp
 *.swo 
+.vercel
+.env*.local

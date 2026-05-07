@@ -107,6 +107,33 @@ body {
   text-decoration: underline;
 }
 
+.bside {
+  margin-bottom: 48px;
+}
+
+.bside-label {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bside-links {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+}
+
+.bside-links a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+.bside-links a:hover {
+  text-decoration: underline;
+}
+
 .chat {
   border: 1px solid #e5e7eb;
   padding: 20px;
