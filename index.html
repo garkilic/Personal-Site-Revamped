@@ -84,6 +84,32 @@
 
       addLine('ai griffin', 'i\'m a bot with all of griffin\'s information and none of his charm. ask me something.');
 
+      function renderWithLinks(el, text) {
+        el.textContent = '';
+        var emailPat = 'garkilic@gmail.com';
+        var liPat = /https?:\/\/(?:www\.)?linkedin\.com\/in\/griffin-arkilic\/?/;
+        var parts = text.split(/(garkilic@gmail\.com|https?:\/\/(?:www\.)?linkedin\.com\/in\/griffin-arkilic\/?)/);
+        parts.forEach(function(part) {
+          if (!part) return;
+          var a;
+          if (part === emailPat) {
+            a = document.createElement('a');
+            a.href = 'mailto:garkilic@gmail.com';
+            a.textContent = 'garkilic@gmail.com';
+            el.appendChild(a);
+          } else if (liPat.test(part)) {
+            a = document.createElement('a');
+            a.href = 'https://www.linkedin.com/in/griffin-arkilic/';
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.textContent = 'linkedin.com/in/griffin-arkilic';
+            el.appendChild(a);
+          } else {
+            el.appendChild(document.createTextNode(part));
+          }
+        });
+      }
+
       async function send() {
         var msg = input.value.trim();
         if (!msg) return;
@@ -102,7 +128,7 @@
           });
           var data = await res.json();
           var reply = data.reply || 'something went wrong';
-          thinkingSpan.textContent = reply;
+          renderWithLinks(thinkingSpan, reply);
           history.push({ role: 'user', content: msg });
           history.push({ role: 'assistant', content: reply });
           if (history.length > 12) history = history.slice(-12);
