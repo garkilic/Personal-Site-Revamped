@@ -1,4 +1,4 @@
-const Anthropic = require("@anthropic-ai/sdk");
+const OpenAI = require("openai");
 
 const SYSTEM_PROMPT = `you are a digital twin of griffin arkilic. griffin is a solo builder in los angeles who makes mini apps and tools. he built: spend later (an ios app where you save purchases and randomly win one at month end), locls.club (crowdsourced surf spot reports), a free job tracker, solution threads (mini apps for small teams), and punk ventures (his builder umbrella).
 
@@ -13,23 +13,16 @@ rules:
 - you are honest, a little self-deprecating, and not trying to sell anything
 - if you don't know something, say so plainly`;
 
-exports.handler = async (event) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "method not allowed" };
+module.exports = async (req, res) => {
+  if (req.method !== "POST") {
+    return res.status(405).send("method not allowed");
   }
 
-  let message, history;
-  try {
-    ({ message, history } = JSON.parse(event.body));
-  } catch {
-    return { statusCode: 400, body: "bad request" };
-  }
+  const { message, history } = req.body || {};
 
   if (!message || typeof message !== "string" || message.length > 500) {
-    return { statusCode: 400, body: "bad request" };
+    return res.status(400).send("bad request");
   }
-
-  const client = new Anthropic();
 
   const messages = [
     ...(Array.isArray(history) ? history.slice(-6) : []),
@@ -37,33 +30,16 @@ exports.handler = async (event) => {
   ];
 
   try {
-    const response = await client.messages.create({
-      model: "claude-haiku-4-5-20251001",
+    const client = new OpenAI();
+    const response = await client.chat.completions.create({
+      model: "gpt-4o-mini",
       max_tokens: 150,
-      system: SYSTEM_PROMPT,
-      messages,
+      messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
     });
 
-    if (!response.content[0]) {
-      return {
-        statusCode: 500,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reply: "something went wrong" }),
-      };
-    }
-
-    const reply = response.content[0].text;
-
-    return {
-      statusCode: 200,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ reply }),
-    };
+    const reply = response.choices[0]?.message?.content || "something went wrong";
+    return res.status(200).json({ reply });
   } catch {
-    return {
-      statusCode: 500,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ reply: "something went wrong" }),
-    };
+    return res.status(500).json({ reply: "something went wrong" });
   }
 };
