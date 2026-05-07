@@ -29,11 +29,13 @@
     </div>
 
     <div class="chat">
-      <div class="chat-label">chat with digital twin of griffin</div>
+      <div class="chat-header">
+        <span class="chat-title">chat with ai griffin until you meet real griffin</span>
+      </div>
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input-row">
-        <input class="chat-input" id="chat-input" type="text" placeholder="type here" maxlength="500" autocomplete="off" />
-        <button class="chat-submit" id="chat-submit">send ↵</button>
+        <input class="chat-input" id="chat-input" type="text" placeholder="ask something..." maxlength="500" autocomplete="off" />
+        <button class="chat-submit" id="chat-submit">↵</button>
       </div>
     </div>
 
@@ -71,7 +73,7 @@
         return textSpan;
       }
 
-      addLine('griffin', 'hey. ask me something.');
+      addLine('ai griffin', 'i\'m a bot with all of griffin\'s information and none of his charm. ask me something.');
 
       async function send() {
         var msg = input.value.trim();
@@ -81,7 +83,7 @@
         submitBtn.disabled = true;
 
         addLine('you', msg);
-        var thinkingSpan = addLine('griffin', '...');
+        var thinkingSpan = addLine('ai griffin', '...');
 
         try {
           var res = await fetch('/api/chat', {
