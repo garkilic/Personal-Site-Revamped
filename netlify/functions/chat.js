@@ -36,18 +36,34 @@ exports.handler = async (event) => {
     { role: "user", content: message },
   ];
 
-  const response = await client.messages.create({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 150,
-    system: SYSTEM_PROMPT,
-    messages,
-  });
+  try {
+    const response = await client.messages.create({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 150,
+      system: SYSTEM_PROMPT,
+      messages,
+    });
 
-  const reply = response.content[0].text;
+    if (!response.content[0]) {
+      return {
+        statusCode: 500,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reply: "something went wrong" }),
+      };
+    }
 
-  return {
-    statusCode: 200,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ reply }),
-  };
+    const reply = response.content[0].text;
+
+    return {
+      statusCode: 200,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reply }),
+    };
+  } catch {
+    return {
+      statusCode: 500,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reply: "something went wrong" }),
+    };
+  }
 };
