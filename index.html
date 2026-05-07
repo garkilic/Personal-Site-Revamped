@@ -28,6 +28,15 @@
       </div>
     </div>
 
+    <div class="chat">
+      <div class="chat-label">chat with digital twin of griffin</div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chat-input" type="text" placeholder="type here" maxlength="500" autocomplete="off" />
+        <button class="chat-submit" id="chat-submit">send ↵</button>
+      </div>
+    </div>
+
     <div class="footer">
       <a href="https://github.com/garkilic" target="_blank" rel="noopener">github</a>
       <button onclick="copyEmail()" id="email-btn">email</button>
@@ -37,6 +46,70 @@
   </div>
 
   <script>
+    (function () {
+      var history = [];
+      var input = document.getElementById('chat-input');
+      var messagesEl = document.getElementById('chat-messages');
+      var submitBtn = document.getElementById('chat-submit');
+
+      function addLine(speaker, text) {
+        var line = document.createElement('div');
+        line.className = 'chat-line';
+
+        var speakerSpan = document.createElement('span');
+        speakerSpan.className = 'speaker';
+        speakerSpan.textContent = speaker + ': ';
+
+        var textSpan = document.createElement('span');
+        textSpan.className = 'text';
+        textSpan.textContent = text;
+
+        line.appendChild(speakerSpan);
+        line.appendChild(textSpan);
+        messagesEl.appendChild(line);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        return textSpan;
+      }
+
+      addLine('griffin', 'hey. ask me something.');
+
+      async function send() {
+        var msg = input.value.trim();
+        if (!msg) return;
+        input.value = '';
+        input.disabled = true;
+        submitBtn.disabled = true;
+
+        addLine('you', msg);
+        var thinkingSpan = addLine('griffin', '...');
+
+        try {
+          var res = await fetch('/.netlify/functions/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: msg, history: history }),
+          });
+          var data = await res.json();
+          var reply = data.reply || 'something went wrong';
+          thinkingSpan.textContent = reply;
+          history.push({ role: 'user', content: msg });
+          history.push({ role: 'assistant', content: reply });
+          if (history.length > 12) history = history.slice(-12);
+        } catch {
+          thinkingSpan.textContent = 'something went wrong, try again';
+        }
+
+        input.disabled = false;
+        submitBtn.disabled = false;
+        input.focus();
+      }
+
+      submitBtn.addEventListener('click', send);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') send();
+      });
+    })();
+
     function copyEmail() {
       navigator.clipboard.writeText('garkilic@gmail.com');
       const btn = document.getElementById('email-btn');
