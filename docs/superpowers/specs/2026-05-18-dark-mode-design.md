@@ -37,7 +37,7 @@ duplicating selectors.
 | `--accent`      | `#1d4ed8`               | `#5b8def`   | name, project/bside links, chat title, chat text, input, submit |
 | `--accent-link` | `#3b82f6`               | `#6b9aef`   | footer links/buttons                               |
 | `--muted`       | `#6b7280`               | `#9aa3b2`   | tagline, location, footer, chat speaker, chat subtitle |
-| `--faint`       | `#9ca3af`               | `#6b7280`   | bside-label, placeholders                          |
+| `--faint`       | `#9ca3af`               | `#8b94a3`   | bside-label, placeholders                          |
 | `--border`      | `#e5e7eb`               | `#2a2a2a`   | chat box border, chat-header border                |
 | `--border-input`| `#d1d5db`               | `#3a3a3a`   | chat input underline (unfocused)                   |
 
@@ -58,8 +58,7 @@ No selector structure, layout, spacing, font, or media-query (the existing
 ## Accessibility
 
 Dark accent `#5b8def` on `#0a0a0a` ≈ 5.9:1 contrast — passes WCAG AA for normal
-text. Muted `#9aa3b2` on `#0a0a0a` ≈ 7:1. Faint `#6b7280` is used only for
-non-essential decorative text (labels, placeholders).
+text. Muted `#9aa3b2` on `#0a0a0a` ≈ 7:1. Faint `#8b94a3` on `#0a0a0a` ≈ 5.7:1 — passes WCAG AA for normal text (labels, placeholders).
 
 ## Verification
 
