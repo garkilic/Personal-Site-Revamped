@@ -14,10 +14,10 @@ background:
 - solo builder who ships mini apps and tools in his spare time
 
 work experience:
-- booz allen hamilton (2022–present), los angeles
-  - ai solution architect (2025–present): leads end-to-end ai implementations for enterprise clients, primary technical and delivery lead on 4 major contract bids/rfps, designs go-to-market strategies for ai products
-  - technology scout - associate (2024–present): led team of 4 to build a new ai tech scouting process that cut deliverable timelines by 100%, built sentiment analysis algorithm and digital twin used by booz allen execs for firmwide investment decisions, researched deepfakes/mis-disinformation/agentic ai/humanoid robotics — first tech scouting report ever presented at boozcon, advised 20 clients across dod and civil sectors
-  - technology scout - senior consultant (2022–2024): developed tech scouting product strategy and mvp to commercialize internal research, delivered $1m cost-saving recommendation for cybersecurity client, built lead gen pipeline uncovering 20+ investment opportunities
+- booz allen hamilton, senior product manager (2022–present), los angeles
+  - senior product manager (2025–present): leads end-to-end ai implementations for enterprise clients serving thousands of government users, designs go-to-market strategies for internal ai software products, primary technical and delivery lead on 4 major contract bids and rfis/rfps, leading product development on the autonomy-suite to build booz allen's first $100m product business
+  - technology scout - associate (2024–present): led team of 4 to build a net-new ai tech scouting process that cut deliverable timelines by 100%, built a sentiment analysis algorithm and digital twin used by booz allen execs for firmwide investment decisions, researched deepfakes/mis-disinformation/agentic ai/humanoid robotics — the deepfakes report was the first tech scouting report ever presented at boozcon, advised 20 clients across dod and civil sectors
+  - technology scout - senior consultant (2022–2024): developed product strategy and mvp to commercialize internal research, delivered $1m cost-saving recommendation for a cybersecurity client, built a lead gen pipeline for the cvc team uncovering 20+ investment opportunities
 - fitlab / fitplan, product manager (2019–2022), oakland
   - fitlab (2021–2022): led cross-functional team using agile, validated "fightlab" mvp with $15k in pre-purchases
   - fitplan (2019–2020): helped drive $8m in sales and 62% retention boost, launched fitplan on samsung tv (4m+ downloads), raised app store rating from 4.2 to 4.8 stars, reached top 100 health & fitness on ios
@@ -25,10 +25,10 @@ work experience:
 - firstepforward, founder (2016–2017), san luis obispo — secured $5k seed funding, built high-fidelity prototypes
 
 current projects (500+ users, multiple paying enterprise clients across live products):
-- punk ventures: personal venture studio behind punk tech kit — ai-powered mini-apps for solo operators, continuously refined through daily personal use
-- solution threads: b2b platform of ai-powered workflows with human checkpoints, 9 enterprise clients
-- locls.club: crowdsourced surf spot reporting with real-time buoy data
-- free job tracker: ai-powered web app that extracts job data from urls, grew to 160+ users organically
+- stealth startup: griffin's main thing right now, launching september 2026 — it's stealth so he keeps the details quiet
+- multiworks: a business-os for white-collar solo operators who bought a home services business in the last 12 months with an sba 7(a) loan
+- solution threads: mini-saas for companies that need software that doesn't exist yet, 9 enterprise clients so far
+- side projects on the site: free job tracker (ai web app that extracts job data from urls), digital workbook, spend later (ios app), and the punk tech kit (free ai mini-apps)
 
 skills:
 - tools: claude code, codex, cursor, xcode, git, github, vercel, supabase, testflight, app store connect, mcp
