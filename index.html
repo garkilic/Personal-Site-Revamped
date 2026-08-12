@@ -3,182 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>griffin arkilic — builder</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/main.css" />
+  <title>griffin arkilic</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #000000;
+      --accent: #3b82f6;
+      --muted: #6b7280;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --fg: #ededed;
+        --accent: #6b9aef;
+        --muted: #9aa3b2;
+      }
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: var(--accent);
+      vertical-align: baseline;
+      margin-left: 4px;
+      animation: blink 1.1s steps(1) infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cursor {
+        animation: none;
+      }
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .location {
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .links a {
+      color: var(--accent);
+      margin: 0 12px;
+    }
+    .links a:hover {
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--bg);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
 
-    <div class="name">griffin arkilic — builder</div>
-    <div class="tagline">building things</div>
+  <main>
+    <h1>griffin arkilic<span class="cursor" aria-hidden="true"></span></h1>
     <div class="location">los angeles, ca</div>
 
-    <div class="projects">
-      <div class="project">
-        booz allen: driving ai adoption and development since 2022
-      </div>
-      <div class="project">
-        stealth startup: live september 2026
-      </div>
-    </div>
-
-    <div class="chat">
-      <div class="chat-header">
-        <span class="chat-title">chat with ai griffin until you meet real griffin</span>
-      </div>
-      <div class="chat-messages" id="chat-messages"></div>
-      <div class="chat-input-row">
-        <input class="chat-input" id="chat-input" type="text" placeholder="ask something..." maxlength="500" autocomplete="off" />
-        <button class="chat-submit" id="chat-submit">↵</button>
-      </div>
-    </div>
-
-    <div class="bside">
-      <div class="bside-label">cool side projects — all free forever</div>
-      <div class="bside-links">
-        <a class="app" href="https://job-search-inky.vercel.app/" target="_blank" rel="noopener">
-          <span class="app-name">free job tracker</span>
-          <span class="app-desc">paste a job link, it pulls out the details for you</span>
-          <svg class="app-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3.5 11.5 L11 4" />
-            <path d="M5.5 4 H11 V9.5" />
-          </svg>
-        </a>
-        <a class="app" href="https://workbook.punk-ventures.com/" target="_blank" rel="noopener">
-          <span class="app-name">digital workbook</span>
-          <span class="app-desc">a daily workbook for your ideas and to-dos</span>
-          <svg class="app-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3.5 11.5 L11 4" />
-            <path d="M5.5 4 H11 V9.5" />
-          </svg>
-        </a>
-        <a class="app" href="https://apps.apple.com/us/app/spend-later/id6753609229" target="_blank" rel="noopener">
-          <span class="app-name">spend later</span>
-          <span class="app-desc">ios app to slow down impulse buys</span>
-          <svg class="app-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3.5 11.5 L11 4" />
-            <path d="M5.5 4 H11 V9.5" />
-          </svg>
-        </a>
-        <a class="app" href="https://punktech.punk-ventures.com/login" target="_blank" rel="noopener">
-          <span class="app-name">free tech kit</span>
-          <span class="app-desc">a starter kit of ai mini-apps for solo operators</span>
-          <svg class="app-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3.5 11.5 L11 4" />
-            <path d="M5.5 4 H11 V9.5" />
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="footer">
-      <a href="https://github.com/garkilic" target="_blank" rel="noopener">github</a>
-      <button onclick="copyEmail()" id="email-btn">email</button>
+    <div class="links">
       <a href="Files/Griffin-Arkilic-Resume.pdf" target="_blank">resume</a>
+      <a href="https://github.com/garkilic" target="_blank" rel="noopener">github</a>
+      <a href="https://punk-ventures.com">punk ventures</a>
     </div>
+  </main>
 
-  </div>
-
-  <script>
-    (function () {
-      var history = [];
-      var input = document.getElementById('chat-input');
-      var messagesEl = document.getElementById('chat-messages');
-      var submitBtn = document.getElementById('chat-submit');
-
-      function addLine(speaker, text) {
-        var line = document.createElement('div');
-        line.className = 'chat-line';
-
-        var speakerSpan = document.createElement('span');
-        speakerSpan.className = 'speaker';
-        speakerSpan.textContent = speaker + ': ';
-
-        var textSpan = document.createElement('span');
-        textSpan.className = 'text';
-        textSpan.textContent = text;
-
-        line.appendChild(speakerSpan);
-        line.appendChild(textSpan);
-        messagesEl.appendChild(line);
-        messagesEl.scrollTop = messagesEl.scrollHeight;
-        return textSpan;
-      }
-
-      addLine('ai griffin', 'i\'m a bot with all of griffin\'s information and none of his charm. ask me something.');
-
-      function renderWithLinks(el, text) {
-        el.textContent = '';
-        var emailPat = 'garkilic@gmail.com';
-        var liPat = /https?:\/\/(?:www\.)?linkedin\.com\/in\/griffin-arkilic\/?/;
-        var parts = text.split(/(garkilic@gmail\.com|https?:\/\/(?:www\.)?linkedin\.com\/in\/griffin-arkilic\/?)/);
-        parts.forEach(function(part) {
-          if (!part) return;
-          var a;
-          if (part === emailPat) {
-            a = document.createElement('a');
-            a.href = 'mailto:garkilic@gmail.com';
-            a.textContent = 'garkilic@gmail.com';
-            el.appendChild(a);
-          } else if (liPat.test(part)) {
-            a = document.createElement('a');
-            a.href = 'https://www.linkedin.com/in/griffin-arkilic/';
-            a.target = '_blank';
-            a.rel = 'noopener';
-            a.textContent = 'linkedin.com/in/griffin-arkilic';
-            el.appendChild(a);
-          } else {
-            el.appendChild(document.createTextNode(part));
-          }
-        });
-      }
-
-      async function send() {
-        var msg = input.value.trim();
-        if (!msg) return;
-        input.value = '';
-        input.disabled = true;
-        submitBtn.disabled = true;
-
-        addLine('you', msg);
-        var thinkingSpan = addLine('ai griffin', '...');
-
-        try {
-          var res = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: msg, history: history }),
-          });
-          var data = await res.json();
-          var reply = data.reply || 'something went wrong';
-          renderWithLinks(thinkingSpan, reply);
-          history.push({ role: 'user', content: msg });
-          history.push({ role: 'assistant', content: reply });
-          if (history.length > 12) history = history.slice(-12);
-        } catch {
-          thinkingSpan.textContent = 'something went wrong, try again';
-        }
-
-        input.disabled = false;
-        submitBtn.disabled = false;
-        input.focus();
-      }
-
-      submitBtn.addEventListener('click', send);
-      input.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') send();
-      });
-    })();
-
-    function copyEmail() {
-      navigator.clipboard.writeText('garkilic@gmail.com');
-      const btn = document.getElementById('email-btn');
-      btn.textContent = 'copied!';
-      setTimeout(() => { btn.textContent = 'email'; }, 2000);
-    }
-  </script>
 </body>
 </html>
