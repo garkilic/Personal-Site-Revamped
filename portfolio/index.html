@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>portfolio — griffin arkilic</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #000000;
+      --accent: #3b82f6;
+      --muted: #6b7280;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --fg: #ededed;
+        --accent: #6b9aef;
+        --muted: #9aa3b2;
+      }
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 40px;
+      color: var(--accent);
+    }
+    .back:hover,
+    .project a:hover {
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .project {
+      margin-bottom: 32px;
+    }
+    .project a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .project .name {
+      font-weight: 700;
+    }
+    .project .desc {
+      color: var(--muted);
+    }
+    .kit {
+      margin-bottom: 32px;
+    }
+    .kit > .name {
+      font-weight: 700;
+    }
+    .kit > .desc {
+      color: var(--muted);
+    }
+    .kit-item {
+      margin: 16px 0 0 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="/">← back</a>
+
+  <h1>portfolio</h1>
+  <div class="subtitle">past projects — things i've built and shipped</div>
+
+  <div class="project">
+    <a href="https://job-search-inky.vercel.app/" target="_blank" rel="noopener">free job tracker</a>
+    <div class="desc">paste a job link, it pulls out the details for you</div>
+  </div>
+
+  <div class="project">
+    <a href="https://workbook.punk-ventures.com/" target="_blank" rel="noopener">digital workbook</a>
+    <div class="desc">a daily workbook for your ideas and to-dos</div>
+  </div>
+
+  <div class="project">
+    <a href="https://apps.apple.com/us/app/spend-later/id6753609229" target="_blank" rel="noopener">spend later</a>
+    <div class="desc">ios app to slow down impulse buys</div>
+  </div>
+
+  <div class="kit">
+    <div class="name">punk tech kit</div>
+    <div class="desc">free tools for builders just starting out</div>
+
+    <div class="project kit-item">
+      <a href="https://punktech.punk-ventures.com/gauntlet/dashboard" target="_blank" rel="noopener">traction</a>
+      <div class="desc">track your active ideas and whether they're working</div>
+    </div>
+
+    <div class="project kit-item">
+      <a href="https://punktech.punk-ventures.com/cadence" target="_blank" rel="noopener">cadence</a>
+      <div class="desc">plan this week's posts</div>
+    </div>
+
+    <div class="project kit-item">
+      <a href="https://punktech.punk-ventures.com/float" target="_blank" rel="noopener">float</a>
+      <div class="desc">log revenue and expenses</div>
+    </div>
+
+    <div class="project kit-item">
+      <a href="https://punktech.punk-ventures.com/crm" target="_blank" rel="noopener">orbit</a>
+      <div class="desc">log contacts and clients</div>
+    </div>
+
+    <div class="project kit-item">
+      <a href="https://punktech.punk-ventures.com/agents/price-benchmark" target="_blank" rel="noopener">price benchmark</a>
+      <div class="desc">an agent that researches local competitor pricing</div>
+    </div>
+  </div>
+
+  <div class="project">
+    <a href="https://www.solutionthreads.com" target="_blank" rel="noopener">solution threads</a>
+    <div class="desc">ai workflows for client work — meeting prep, storytelling, research</div>
+  </div>
+
+</body>
+</html>
